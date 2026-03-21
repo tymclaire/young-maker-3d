@@ -8,185 +8,231 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --y:#FFBF00;--yd:#CC9900;--yl:#FFF3CC;
+  --y:#FFBF00;--yd:#CC9900;--yl:#FFF3CC;--yp:#FFFBF0;
   --ink:#1A1A18;--mid:#5A5A52;--light:#9A9A90;
   --bg:#FDFCF8;--white:#fff;--gray:#F4F3EE;
   --border:rgba(26,26,24,.1);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
-h1,h2,h3,.logo-t,.sc-name,.uc-title,.st,.sn-num,.step-t{font-family:'League Spartan',sans-serif}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(253,252,248,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--y)}
-.logo-t{font-size:18px;font-weight:900;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
-.lm{width:34px;height:34px;background:var(--y);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--ink)}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;color:var(--mid);text-decoration:none;transition:color .15s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:7px}
-
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-y{background:var(--y);color:var(--ink);box-shadow:0 4px 18px rgba(255,191,0,.35)}
-.btn-y:hover{background:var(--yd)}
-.btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.btn-ol{background:transparent;color:var(--ink);border:2px solid var(--border)}
-.btn-ol:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+h1,h2,h3,h4{font-family:'League Spartan',sans-serif}
+h2{font-size:clamp(28px,3.6vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.06;margin-bottom:14px}
+.sub{font-size:15px;color:var(--mid);line-height:1.72;font-weight:300;max-width:500px}
 
 /* TAG */
 .tag{display:inline-flex;align-items:center;gap:7px;font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yd);background:var(--yl);padding:5px 14px;border-radius:100px;margin-bottom:14px}
 .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--y);flex-shrink:0}
 
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-y{background:var(--y);color:var(--ink);box-shadow:0 4px 16px rgba(255,191,0,.35)}.btn-y:hover{background:var(--yd)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.btn-ol{background:transparent;color:var(--ink);border:2px solid var(--border)}.btn-ol:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
 /* REVEAL */
-.r{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
+.r{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
 .r.on{opacity:1;transform:none}
 
-/* ─── HERO ─── */
-#hero{padding:66px 0 0;background:var(--bg)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(253,252,248,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--y)}
+.logo{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:900;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.lm{width:34px;height:34px;background:var(--y);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;color:var(--mid);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
+
+/* HERO */
+#hero{padding-top:66px;background:var(--bg)}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 66px)}
-
-.hero-left{padding:72px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative}
-.hero-eyebrow{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:20px;animation:fup .5s ease both}
-.eyebrow-line{width:28px;height:2px;background:var(--y);border-radius:2px}
-h1{font-size:clamp(40px,5vw,70px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:10px;animation:fup .5s .07s ease both}
+.hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center}
+.hero-ey{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyeline{width:28px;height:2px;background:var(--y);border-radius:2px}
+h1{font-family:'League Spartan',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:10px}
 h1 .yel{color:var(--y)}
-.hero-sub{font-family:'League Spartan',sans-serif;font-size:clamp(14px,1.6vw,19px);font-weight:600;color:var(--mid);margin-bottom:22px;animation:fup .5s .14s ease both}
-.hero-p{font-size:15px;line-height:1.72;color:var(--mid);max-width:440px;margin-bottom:34px;font-weight:300;animation:fup .5s .21s ease both}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fup .5s .28s ease both}
-.hero-nums{display:flex;gap:32px;margin-top:44px;padding-top:28px;border-top:1px solid var(--border);animation:fup .5s .35s ease both}
-.hn-n{font-family:'League Spartan',sans-serif;font-size:28px;font-weight:900;color:var(--y)}
+.hero-tagline{font-family:'League Spartan',sans-serif;font-size:clamp(14px,1.6vw,18px);font-weight:600;color:var(--mid);margin-bottom:20px}
+.hero-p{font-size:15px;line-height:1.72;color:var(--mid);max-width:440px;margin-bottom:32px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-nums{display:flex;gap:32px;margin-top:40px;padding-top:26px;border-top:1px solid var(--border)}
+.hn-n{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--y)}
 .hn-l{font-size:11px;color:var(--light);margin-top:2px;font-weight:300}
+.hero-right{background:var(--gray);display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:var(--y);opacity:.09;filter:blur(70px)}
 
-/* Hero right — LAB ILLUSTRATION */
-.hero-right{background:var(--gray);display:flex;align-items:center;justify-content:center;padding:40px 32px;position:relative;overflow:hidden}
-.hero-right::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:var(--y);opacity:.08;filter:blur(80px)}
+/* SECTION */
+section{padding:88px 5%}
 
-/* ─── TICKER ─── */
-.ticker{background:var(--y);overflow:hidden;padding:13px 0;border-top:2px solid var(--yd);border-bottom:2px solid var(--yd)}
-.ticker-track{display:flex;animation:tick 24s linear infinite}
-.ticker-item{font-family:'League Spartan',sans-serif;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink);padding:0 32px;flex-shrink:0;display:flex;align-items:center;gap:32px}
-.ticker-item::after{content:'★';opacity:.35;font-size:8px}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* 3D PRINTING INFO */
+#printing{background:var(--white)}
+.print-types{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-top:44px;margin-bottom:24px}
+.pt{padding:28px 24px;border-right:1.5px solid var(--border);transition:background .2s}
+.pt:last-child{border-right:none}
+.pt:hover{background:var(--yp)}
+.pt-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;flex-shrink:0}
+.pt-name{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px}
+.pt-sub{display:inline-block;font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:10px}
+.pt-desc{font-size:13px;color:var(--mid);line-height:1.68;font-weight:300}
+.filament-rack{background:var(--gray);border-radius:14px;padding:22px 26px}
+.fr-title{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:800;margin-bottom:16px}
+.filaments{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.fil{border-radius:10px;padding:14px 10px;text-align:center;border:1.5px solid rgba(0,0,0,.07)}
+.fil-swatch{width:26px;height:26px;border-radius:50%;margin:0 auto 8px;border:3px solid rgba(0,0,0,.1);box-shadow:inset 0 2px 4px rgba(0,0,0,.1)}
+.fil-name{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;margin-bottom:2px}
+.fil-desc{font-size:10px;font-weight:300;opacity:.65}
 
-/* ─── HOW IT WORKS ─── */
-#how{background:var(--white);padding:96px 5%}
-.how-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:24px;flex-wrap:wrap}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border);border-radius:16px;overflow:hidden}
-.step{padding:36px 28px;border-right:1.5px solid var(--border);transition:background .2s}
-.step:last-child{border-right:none}
-.step:hover{background:var(--yl)}
-.sn{font-family:'League Spartan',sans-serif;font-size:60px;font-weight:900;color:var(--yl);line-height:1;margin-bottom:14px;letter-spacing:-3px}
-.step:hover .sn{color:var(--y)}
-.step-t{font-size:19px;font-weight:800;margin-bottom:8px}
-.step-d{font-size:13.5px;color:var(--mid);line-height:1.68;font-weight:300}
-
-/* ─── SERVICES ─── */
-#services{background:var(--bg);padding:96px 5%}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
-.sc{background:var(--white);border-radius:16px;border:2px solid var(--border);overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s;display:flex;flex-direction:column}
-.sc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 44px rgba(255,191,0,.12)}
+/* SERVICES */
+#services{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
+.sc{background:var(--white);border-radius:16px;border:2px solid var(--border);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
+.sc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 40px rgba(255,191,0,.12)}
 .sc.pop{border-color:var(--y)}
-.sc-img{width:100%;height:196px;overflow:hidden;position:relative;flex-shrink:0}
-.sc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.sc:hover .sc-img img{transform:scale(1.06)}
-.sc-pop-badge{position:absolute;top:12px;left:12px;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:5px 12px;border-radius:100px}
-.sc-body{padding:26px 24px 28px;display:flex;flex-direction:column;flex:1}
+.sc-vis{width:100%;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.sc-vis-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1px);background-size:20px 20px}
+.sc-pop-badge{position:absolute;top:12px;left:12px;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;z-index:1}
+.sc-body{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1}
 .sc-icon{font-size:26px;margin-bottom:12px}
-.sc-name{font-size:20px;font-weight:800;margin-bottom:7px}
+.sc-name{font-family:'League Spartan',sans-serif;font-size:21px;font-weight:800;margin-bottom:7px}
 .sc-desc{font-size:13.5px;color:var(--mid);line-height:1.68;margin-bottom:18px;font-weight:300;flex:1}
-.sc-price{font-family:'League Spartan',sans-serif;font-weight:900;font-size:26px;color:var(--ink)}
-.sc-price-note{font-size:11.5px;color:var(--light);margin-bottom:18px}
+.sc-price{font-family:'League Spartan',sans-serif;font-weight:900;font-size:28px;color:var(--ink)}
+.sc-note{font-size:12px;color:var(--light);margin-bottom:18px}
 .sc-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:22px}
 .sc-list li{font-size:13px;color:var(--mid);display:flex;gap:8px;font-weight:300}
 .sc-list li::before{content:'✓';color:var(--yd);font-weight:700;flex-shrink:0}
-.sc-btn{width:100%;display:flex;align-items:center;justify-content:center;padding:12px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:background .15s,transform .12s;margin-top:auto}
-.sc-btn:hover{transform:translateY(-1px)}
+.sc-btn{width:100%;display:flex;align-items:center;justify-content:center;padding:13px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:background .15s;margin-top:auto}
 .scb-y{background:var(--y);color:var(--ink)}.scb-y:hover{background:var(--yd)}
 .scb-ink{background:var(--ink);color:#fff}.scb-ink:hover{background:#333}
 .scb-ol{background:transparent;color:var(--ink);border:2px solid var(--border)}.scb-ol:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-/* ─── USE CASES ─── */
-#usecases{background:var(--gray);padding:96px 5%}
-.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+/* PROJECTS */
+#projects{background:var(--white)}
+.proj-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.pf{font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;padding:7px 18px;border-radius:100px;border:2px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all .15s}
+.pf:hover,.pf.active{background:var(--y);border-color:var(--y);color:var(--ink)}
+.tier-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.tier-badge{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px}
+.tier-title{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800}
+.tier-note{font-size:12px;color:var(--light);margin-left:auto}
+.tier-section{margin-bottom:44px}
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pc{background:var(--gray);border-radius:14px;overflow:hidden;border:2px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
+.pc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 10px 30px rgba(255,191,0,.12)}
+.pc.hidden{display:none}
+.pc-vis{width:100%;height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.pc-vis-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1px);background-size:18px 18px}
+.pc-badge{position:absolute;top:8px;right:8px;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px;z-index:1}
+.pc-icon{font-size:42px;line-height:1;z-index:1;filter:drop-shadow(0 3px 6px rgba(0,0,0,.1))}
+.pc-label{font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-top:7px;z-index:1;opacity:.8}
+.pc-body{padding:12px 13px 14px;display:flex;flex-direction:column;flex:1}
+.pc-name{font-family:'League Spartan',sans-serif;font-size:13.5px;font-weight:800;margin-bottom:3px}
+.pc-tool{font-size:10px;color:var(--light);margin-bottom:6px}
+.pc-desc{font-size:12px;color:var(--mid);line-height:1.58;font-weight:300;margin-bottom:10px;flex:1}
+.pc-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.pc-credits{font-family:'League Spartan',sans-serif;font-size:10.5px;font-weight:800;color:var(--yd);background:var(--yl);padding:3px 9px;border-radius:100px}
+.pc-time{font-size:10.5px;color:var(--light)}
+
+/* CREDITS */
+#credits{background:var(--gray)}
+.credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:44px}
+.cr-rules{display:flex;flex-direction:column;gap:14px}
+.cr-rule{display:flex;gap:14px;padding:16px 18px;background:var(--white);border-radius:12px;border:2px solid var(--border)}
+.cr-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.cr-t{font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;margin-bottom:3px}
+.cr-d{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300}
+.cr-tiers{display:flex;flex-direction:column;gap:12px}
+.tier{background:var(--white);border-radius:14px;border:2px solid var(--border);padding:20px 22px;transition:border-color .2s}
+.tier:hover{border-color:var(--y)}
+.tier.pop{border-color:var(--y);background:var(--yp)}
+.tier-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.tier-name{font-family:'League Spartan',sans-serif;font-size:16px;font-weight:800}
+.tier-price{font-family:'League Spartan',sans-serif;font-weight:900;font-size:22px;color:var(--y)}
+.tier-price span{font-size:13px;font-weight:400;color:var(--light)}
+.tier-chips{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.chip{background:var(--yl);color:var(--yd);font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;padding:3px 10px;border-radius:100px}
+.pop-badge{background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px}
+.tier-perks{list-style:none;display:flex;flex-direction:column;gap:5px}
+.tier-perks li{font-size:13px;color:var(--mid);display:flex;gap:8px;font-weight:300}
+.tier-perks li::before{content:'✓';color:var(--yd);font-weight:700;flex-shrink:0}
+.cr-example{background:var(--yp);border:2px solid var(--y);border-radius:12px;padding:14px 16px;margin-top:4px}
+.cr-example p{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300}
+
+/* EVENTS */
+#events{background:var(--bg)}
+.events-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:44px}
+.ev-perks{display:flex;flex-direction:column;gap:14px}
+.ev-perk{display:flex;gap:14px;padding:18px 20px;background:var(--white);border-radius:12px;border:2px solid var(--border);transition:border-color .2s}
+.ev-perk:hover{border-color:var(--y)}
+.ep-icon{font-size:22px;flex-shrink:0;margin-top:1px}
+.ep-t{font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;margin-bottom:3px}
+.ep-d{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300}
+.ev-cta{background:var(--y);border-radius:20px;padding:44px 40px;text-align:center}
+.ev-cta-icon{font-size:56px;margin-bottom:18px}
+.ev-cta h3{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.1}
+.ev-cta p{font-size:14px;color:rgba(26,26,24,.65);margin-bottom:26px;font-weight:300;line-height:1.65}
+.ev-cta-btn{display:flex;flex-direction:column;gap:10px;align-items:center}
+.ev-note{font-size:12px;color:rgba(26,26,24,.5);margin-top:4px}
+
+/* USE CASES */
+#usecases{background:var(--gray)}
+.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
 .uc{background:var(--white);border-radius:16px;overflow:hidden;border:2px solid var(--border);transition:border-color .2s,transform .2s,box-shadow .2s}
-.uc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,.07)}
-.uc-img{width:100%;height:210px;overflow:hidden}
-.uc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.uc:hover .uc-img img{transform:scale(1.05)}
-.uc-body{padding:22px 24px 26px}
+.uc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.07)}
+.uc-vis{width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.uc-vis-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1px);background-size:18px 18px}
+.uc-vis-icon{font-size:56px;line-height:1;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.12))}
+.uc-vis-label{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-top:9px;z-index:1;opacity:.8}
+.uc-body{padding:20px 22px 24px}
 .uc-ey{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--yd);margin-bottom:6px}
-.uc-title{font-size:18px;font-weight:800;margin-bottom:8px;line-height:1.2}
+.uc-title{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.2}
 .uc-desc{font-size:13.5px;color:var(--mid);line-height:1.68;margin-bottom:12px;font-weight:300}
 .uc-pill{display:inline-block;background:var(--yl);color:var(--yd);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:4px 12px;border-radius:100px}
 
-/* ─── EVENTS ─── */
-#events{background:var(--white);padding:96px 5%}
-.events-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:52px}
-.ev-img{border-radius:16px;overflow:hidden;height:440px}
-.ev-img img{width:100%;height:100%;object-fit:cover;display:block}
-.ev-types{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
-.ev-type{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border-radius:12px;border:2px solid var(--border);transition:border-color .2s,background .2s}
-.ev-type:hover{border-color:var(--y);background:var(--yl)}
-.et-icon{font-size:22px;flex-shrink:0;margin-top:1px}
-.et-name{font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;margin-bottom:3px}
-.et-desc{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300}
-.ev-price{background:var(--y);border-radius:12px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.evp-from{font-size:11px;color:rgba(26,26,24,.55);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.evp-num{font-family:'League Spartan',sans-serif;font-weight:900;font-size:44px;line-height:1;letter-spacing:-1px}
-.evp-unit{font-size:12px;color:rgba(26,26,24,.55);margin-top:2px}
-
-/* ─── TESTIMONIALS ─── */
-#stories{background:var(--bg);padding:96px 5%}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.tc{background:var(--white);border-radius:14px;overflow:hidden;border:2px solid var(--border);transition:transform .2s,border-color .2s}
+/* TESTIMONIALS */
+#stories{background:var(--white)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.tc{background:var(--bg);border-radius:14px;overflow:hidden;border:2px solid var(--border);transition:transform .2s,border-color .2s}
 .tc:hover{transform:translateY(-4px);border-color:var(--y)}
-.tc-img{width:100%;height:150px;overflow:hidden}
-.tc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.tc-vis{width:100%;height:100px;display:flex;align-items:center;justify-content:center;font-size:52px}
 .tc-body{padding:20px 18px 22px}
 .tc-stars{color:var(--y);font-size:13px;letter-spacing:1px;margin-bottom:11px}
 .tc-q{font-size:13px;line-height:1.7;color:var(--ink);margin-bottom:16px;font-style:italic;position:relative;padding-left:17px}
 .tc-q::before{content:'"';position:absolute;left:0;top:-3px;font-family:Georgia,serif;font-size:28px;color:var(--y);line-height:1}
 .tc-a{display:flex;align-items:center;gap:10px}
-.tc-av{width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:800;font-size:12px;flex-shrink:0}
+.tc-av{width:34px;height:34px;border-radius:50%;color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:800;font-size:12px;flex-shrink:0}
 .tc-n{font-family:'League Spartan',sans-serif;font-weight:700;font-size:13px}
 .tc-r{font-size:11px;color:var(--light)}
 
-/* ─── CTA ─── */
-#cta{background:var(--y);text-align:center;padding:96px 5%;position:relative;overflow:hidden}
+/* CTA */
+#cta{background:var(--y);text-align:center;padding:88px 5%;position:relative;overflow:hidden}
 #cta::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:500px;height:500px;border-radius:50%;background:#fff;opacity:.08;pointer-events:none}
 #cta .tag{background:rgba(26,26,24,.12);color:var(--ink)}
-#cta h2{color:var(--ink);font-size:clamp(32px,4.5vw,58px)}
-#cta p{font-size:16px;color:rgba(26,26,24,.6);max-width:400px;margin:0 auto 34px;font-weight:300}
+#cta h2{color:var(--ink);font-size:clamp(30px,4.5vw,56px)}
+#cta p{font-size:16px;color:rgba(26,26,24,.6);max-width:420px;margin:0 auto 32px;font-weight:300}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .cta-note{margin-top:18px;font-size:12px;color:rgba(26,26,24,.45)}
 
-/* ─── FOOTER ─── */
+/* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px}
-.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;text-decoration:none}
 .ft-logo-t{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:900;color:#fff}
 .ft-brand p{font-size:13px;line-height:1.68;max-width:220px;font-weight:300}
-.ft-col h4{font-family:'League Spartan',sans-serif;font-weight:800;font-size:12px;color:#fff;margin-bottom:14px;letter-spacing:.5px}
+.ft-col h4{font-family:'League Spartan',sans-serif;font-weight:800;font-size:12px;color:#fff;margin-bottom:14px}
 .ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:8px;transition:color .15s;font-weight:300}
 .ft-col a:hover{color:var(--y)}
 .ft-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.07);padding-top:20px;margin-top:4px;display:flex;justify-content:space-between;font-size:12px}
 .ft-y{color:var(--y);font-family:'League Spartan',sans-serif;font-weight:700}
-h2{font-size:clamp(28px,3.6vw,50px);font-weight:900;letter-spacing:-1.5px;line-height:1.06;margin-bottom:14px}
-.sub{font-size:16px;color:var(--mid);line-height:1.72;font-weight:300;max-width:500px}
 
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-right{min-height:320px}
-  .steps,.services-grid,.uc-grid,.tgrid{grid-template-columns:1fr}
-  .step{border-right:none;border-bottom:1.5px solid var(--border)}
-  .step:last-child{border-bottom:none}
-  .events-layout{grid-template-columns:1fr}
+  .hero-grid,.services-grid,.uc-grid,.events-layout,.credits-grid{grid-template-columns:1fr}
+  .hero-right{min-height:300px}
+  .print-types,.tgrid,.proj-grid{grid-template-columns:1fr 1fr}
+  .filaments{grid-template-columns:repeat(3,1fr)}
   footer{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
-  .how-head{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:520px){
+  .print-types,.proj-grid,.tgrid,.filaments{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -194,29 +240,28 @@ h2{font-size:clamp(28px,3.6vw,50px);font-weight:900;letter-spacing:-1.5px;line-h
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo-t"><div class="lm">YM</div>The Young Maker</a>
+  <a href="#" class="logo"><div class="lm">YM</div>The Young Maker</a>
   <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#usecases">Inspiration</a>
+    <a href="#printing">3D Printing</a>
+    <a href="#services">Classes</a>
+    <a href="#projects">Projects</a>
+    <a href="#credits">Pricing</a>
     <a href="#events">Events</a>
-    <a href="#stories">Stories</a>
     <a href="#cta" class="nav-cta">Book Now</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" style="padding:0">
   <div class="hero-grid">
-
-    <!-- LEFT: Text -->
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="eyebrow-line"></span>Singapore's First 3D Printing Lab</div>
+      <div class="hero-ey"><span class="eyeline"></span>Singapore's First 3D Printing Lab</div>
       <h1>Bring Your<br>Ideas to <span class="yel">Life.</span></h1>
-      <p class="hero-sub">Where every idea becomes something you can hold.</p>
-      <p class="hero-p">3D printing classes, session passes, birthday parties and corporate events — The Young Maker gives every age the tools to design, print, and create something real.</p>
+      <p class="hero-tagline">Where every idea becomes something you can hold.</p>
+      <p class="hero-p">3D printing classes, session passes, birthday parties and corporate workshops — the tools to design, print, and create something real.</p>
       <div class="hero-btns">
         <a href="#services" class="btn btn-y">Explore Classes →</a>
-        <a href="#usecases" class="btn btn-ol">See What's Possible</a>
+        <a href="#projects" class="btn btn-ol">See What's Possible</a>
       </div>
       <div class="hero-nums">
         <div><div class="hn-n">6+</div><div class="hn-l">Ages welcome</div></div>
@@ -225,455 +270,464 @@ h2{font-size:clamp(28px,3.6vw,50px);font-weight:900;letter-spacing:-1.5px;line-h
         <div><div class="hn-n">#1</div><div class="hn-l">In Singapore</div></div>
       </div>
     </div>
-
-    <!-- RIGHT: 3D Lab Illustration -->
     <div class="hero-right">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" style="width:100%;max-width:520px;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.1))">
-
-        <!-- Room bg -->
-        <rect width="520" height="400" rx="16" fill="#F0EDE4"/>
-        <!-- Wall -->
-        <rect width="520" height="270" rx="0" fill="#EAE6DC"/>
-        <rect width="520" height="4" y="270" fill="#D8D2C4"/>
-        <!-- Floor -->
-        <rect y="270" width="520" height="130" rx="0" fill="#E2DDD0"/>
-
-        <!-- Ceiling light -->
-        <rect x="40" y="0" width="440" height="7" rx="3" fill="#FFBF00" opacity="0.8"/>
-        <rect x="40" y="7" width="440" height="18" rx="0" fill="#FFBF00" opacity="0.07"/>
-
-        <!-- Wall shelf rail -->
-        <rect x="20" y="52" width="480" height="5" rx="2" fill="#C8C0A8"/>
-
-        <!-- Filament spools on shelf -->
-        <!-- Spool 1 yellow -->
-        <circle cx="56" cy="44" r="16" fill="#FFBF00" opacity="0.85"/>
-        <circle cx="56" cy="44" r="10" fill="#F0EDE4"/>
-        <circle cx="56" cy="44" r="4" fill="#FFBF00" opacity="0.5"/>
-        <!-- Spool 2 pink -->
-        <circle cx="90" cy="44" r="16" fill="#FF5577" opacity="0.8"/>
-        <circle cx="90" cy="44" r="10" fill="#F0EDE4"/>
-        <circle cx="90" cy="44" r="4" fill="#FF5577" opacity="0.4"/>
-        <!-- Spool 3 blue -->
-        <circle cx="124" cy="44" r="16" fill="#4488FF" opacity="0.8"/>
-        <circle cx="124" cy="44" r="10" fill="#F0EDE4"/>
-        <circle cx="124" cy="44" r="4" fill="#4488FF" opacity="0.4"/>
-        <!-- Spool 4 green -->
-        <circle cx="158" cy="44" r="16" fill="#33BB77" opacity="0.75"/>
-        <circle cx="158" cy="44" r="10" fill="#F0EDE4"/>
-        <circle cx="158" cy="44" r="4" fill="#33BB77" opacity="0.4"/>
-        <!-- Spool label -->
-        <text x="200" y="48" font-family="Arial,sans-serif" font-size="8" fill="#A8A090" letter-spacing="1.5" font-weight="700">FILAMENT LIBRARY</text>
-
-        <!-- Brand sign on wall -->
-        <rect x="190" y="70" width="140" height="28" rx="6" fill="rgba(255,191,0,.15)" stroke="#FFBF00" stroke-width="1.5" stroke-opacity=".6"/>
-        <text x="260" y="88" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="#FFBF00" text-anchor="middle" letter-spacing="1.5" opacity=".9">THE YOUNG MAKER</text>
-
-        <!-- Workbench top surface -->
-        <rect x="10" y="258" width="500" height="16" rx="4" fill="#C0B490"/>
-        <!-- Bench legs -->
-        <rect x="10" y="274" width="10" height="126" rx="3" fill="#A89870"/>
-        <rect x="500" y="274" width="10" height="126" rx="3" fill="#A89870"/>
-        <rect x="165" y="274" width="8" height="126" rx="3" fill="#A89870"/>
-        <rect x="347" y="274" width="8" height="126" rx="3" fill="#A89870"/>
-
-        <!-- ═══ PRINTER 1 — LEFT (yellow) ═══ -->
-        <!-- Body -->
-        <rect x="28" y="138" width="132" height="120" rx="10" fill="#242422"/>
-        <!-- Glass panel -->
-        <rect x="40" y="174" width="108" height="76" rx="5" fill="#1A1A18"/>
-        <!-- Object printing — yellow vase -->
-        <ellipse cx="94" cy="246" rx="18" ry="5" fill="#FFBF00" opacity="0.9"/>
-        <path d="M76 246 Q74 220 86 212 Q94 207 102 212 Q114 220 112 246Z" fill="#FFBF00" opacity="0.85"/>
-        <ellipse cx="94" cy="212" rx="12" ry="4" fill="#FFD350"/>
-        <!-- Layer lines on object -->
-        <line x1="79" y1="230" x2="109" y2="230" stroke="rgba(255,191,0,.25)" stroke-width="1"/>
-        <line x1="78" y1="238" x2="110" y2="238" stroke="rgba(255,191,0,.25)" stroke-width="1"/>
-        <!-- Top gantry bar -->
-        <rect x="33" y="142" width="122" height="7" rx="3" fill="#333330"/>
-        <!-- Side rails -->
-        <rect x="33" y="142" width="7" height="116" rx="3" fill="#3A3A38"/>
-        <rect x="148" y="142" width="7" height="116" rx="3" fill="#3A3A38"/>
-        <!-- Print head -->
-        <rect x="68" y="157" width="52" height="15" rx="4" fill="#484846"/>
-        <rect x="91" y="172" width="6" height="8" rx="2" fill="#FFBF00" opacity="0.9"/>
-        <!-- Filament tube -->
-        <path d="M94 162 Q110 145 126 126 Q136 116 144 104" stroke="#FFBF00" stroke-width="2" fill="none" stroke-dasharray="4 3" opacity="0.55"/>
-        <!-- Attached spool -->
-        <circle cx="150" cy="98" r="22" fill="#2A2A28"/>
-        <circle cx="150" cy="98" r="14" fill="#FFBF00" opacity="0.8"/>
-        <circle cx="150" cy="98" r="6" fill="#1A1A18"/>
-        <!-- Mini screen -->
-        <rect x="40" y="146" width="26" height="18" rx="3" fill="#0A1520"/>
-        <rect x="43" y="149" width="20" height="4" rx="1" fill="#00FF88" opacity="0.7"/>
-        <rect x="43" y="155" width="13" height="3" rx="1" fill="#FFBF00" opacity="0.55"/>
-        <!-- Status LED green = printing -->
-        <circle cx="150" cy="148" r="5" fill="#00FF88"/>
-        <circle cx="150" cy="148" r="9" fill="#00FF88" opacity="0.2"/>
-
-        <!-- ═══ PRINTER 2 — CENTER (pink) ═══ -->
-        <rect x="194" y="122" width="132" height="136" rx="10" fill="#242422"/>
-        <rect x="206" y="162" width="108" height="88" rx="5" fill="#1A1A18"/>
-        <!-- Object — geometric pink -->
-        <ellipse cx="260" cy="246" rx="19" ry="5" fill="#FF5577" opacity="0.9"/>
-        <polygon points="241,246 248,210 260,204 272,210 279,246" fill="#FF5577" opacity="0.82"/>
-        <ellipse cx="260" cy="204" rx="14" ry="4.5" fill="#FF88AA"/>
-        <line x1="244" y1="225" x2="276" y2="225" stroke="rgba(255,85,119,.25)" stroke-width="1"/>
-        <line x1="242" y1="236" x2="278" y2="236" stroke="rgba(255,85,119,.25)" stroke-width="1"/>
-        <!-- Gantry -->
-        <rect x="199" y="126" width="122" height="7" rx="3" fill="#333330"/>
-        <rect x="199" y="126" width="7" height="132" rx="3" fill="#3A3A38"/>
-        <rect x="314" y="126" width="7" height="132" rx="3" fill="#3A3A38"/>
-        <rect x="234" y="140" width="52" height="15" rx="4" fill="#484846"/>
-        <rect x="257" y="155" width="6" height="8" rx="2" fill="#FF5577" opacity="0.9"/>
-        <!-- Filament -->
-        <path d="M260 145 Q276 126 294 108 Q304 96 312 84" stroke="#FF5577" stroke-width="2" fill="none" stroke-dasharray="4 3" opacity="0.55"/>
-        <circle cx="318" cy="78" r="22" fill="#2A2A28"/>
-        <circle cx="318" cy="78" r="14" fill="#FF5577" opacity="0.8"/>
-        <circle cx="318" cy="78" r="6" fill="#1A1A18"/>
-        <!-- Screen -->
-        <rect x="206" y="130" width="26" height="18" rx="3" fill="#0A1520"/>
-        <rect x="209" y="133" width="20" height="4" rx="1" fill="#FF5577" opacity="0.8"/>
-        <rect x="209" y="139" width="14" height="3" rx="1" fill="#FFBF00" opacity="0.5"/>
-        <!-- LED -->
-        <circle cx="316" cy="132" r="5" fill="#00FF88"/>
-        <circle cx="316" cy="132" r="9" fill="#00FF88" opacity="0.2"/>
-
-        <!-- ═══ PRINTER 3 — RIGHT (blue) ═══ -->
-        <rect x="360" y="148" width="132" height="110" rx="10" fill="#242422"/>
-        <rect x="372" y="182" width="108" height="70" rx="5" fill="#1A1A18"/>
-        <!-- Object — cube blue -->
-        <ellipse cx="426" cy="248" rx="17" ry="5" fill="#4488FF" opacity="0.9"/>
-        <rect x="410" y="218" width="32" height="30" rx="5" fill="#4488FF" opacity="0.82"/>
-        <ellipse cx="426" cy="218" rx="17" ry="5" fill="#77AAFF"/>
-        <line x1="412" y1="230" x2="442" y2="230" stroke="rgba(68,136,255,.25)" stroke-width="1"/>
-        <line x1="411" y1="240" x2="441" y2="240" stroke="rgba(68,136,255,.25)" stroke-width="1"/>
-        <!-- Gantry -->
-        <rect x="365" y="152" width="122" height="7" rx="3" fill="#333330"/>
-        <rect x="365" y="152" width="7" height="106" rx="3" fill="#3A3A38"/>
-        <rect x="480" y="152" width="7" height="106" rx="3" fill="#3A3A38"/>
-        <rect x="400" y="165" width="52" height="14" rx="4" fill="#484846"/>
-        <rect x="423" y="179" width="6" height="8" rx="2" fill="#4488FF" opacity="0.9"/>
-        <!-- Filament -->
-        <path d="M426 169 Q440 152 456 136 Q466 124 474 112" stroke="#4488FF" stroke-width="2" fill="none" stroke-dasharray="4 3" opacity="0.55"/>
-        <circle cx="479" cy="106" r="20" fill="#2A2A28"/>
-        <circle cx="479" cy="106" r="13" fill="#4488FF" opacity="0.8"/>
-        <circle cx="479" cy="106" r="5.5" fill="#1A1A18"/>
-        <!-- Screen -->
-        <rect x="372" y="156" width="24" height="17" rx="3" fill="#0A1520"/>
-        <rect x="375" y="159" width="18" height="4" rx="1" fill="#FFBF00" opacity="0.5"/>
-        <rect x="375" y="165" width="12" height="3" rx="1" fill="#4488FF" opacity="0.6"/>
-        <!-- LED yellow = ready -->
-        <circle cx="478" cy="158" r="5" fill="#FFBF00" opacity="0.9"/>
-        <circle cx="478" cy="158" r="9" fill="#FFBF00" opacity="0.2"/>
-
-        <!-- PRINTED OBJECTS on bench -->
-        <!-- Mini vase (finished) -->
-        <ellipse cx="178" cy="257" rx="11" ry="3" fill="#FFBF00" opacity="0.7"/>
-        <path d="M167 257 Q166 242 178 237 Q190 242 189 257Z" fill="#FFBF00" opacity="0.65"/>
-        <!-- Gear -->
-        <circle cx="215" cy="250" r="9" fill="none" stroke="#888878" stroke-width="2.5"/>
-        <circle cx="215" cy="250" r="4.5" fill="#888878" opacity="0.7"/>
-        <line x1="215" y1="239" x2="215" y2="236" stroke="#888878" stroke-width="2.5"/>
-        <line x1="215" y1="264" x2="215" y2="261" stroke="#888878" stroke-width="2.5"/>
-        <line x1="204" y1="250" x2="201" y2="250" stroke="#888878" stroke-width="2.5"/>
-        <line x1="226" y1="250" x2="229" y2="250" stroke="#888878" stroke-width="2.5"/>
-        <!-- Figurine -->
-        <ellipse cx="346" cy="257" rx="9" ry="3" fill="#FF5577" opacity="0.7"/>
-        <rect x="338" y="240" width="16" height="17" rx="3" fill="#FF5577" opacity="0.65"/>
-        <circle cx="346" cy="237" r="6.5" fill="#FF5577" opacity="0.7"/>
-        <!-- L bracket -->
-        <path d="M380 258 L380 240 L394 240 L394 244 L384 244 L384 258Z" fill="#4488FF" opacity="0.7"/>
-
-        <!-- LIVE LAB badge -->
-        <rect x="18" y="15" width="96" height="24" rx="12" fill="#FFBF00" opacity="0.95"/>
-        <circle cx="28" cy="27" r="4" fill="rgba(26,26,24,.2)"/>
-        <circle cx="28" cy="27" r="2.5" fill="#1A1A18" opacity="0.6"/>
-        <text x="62" y="31.5" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="#1A1A18" text-anchor="middle" letter-spacing="1.5">LIVE LAB</text>
-
-        <!-- Ambient printer glows -->
-        <ellipse cx="94" cy="245" rx="55" ry="18" fill="#FFBF00" opacity="0.05"/>
-        <ellipse cx="260" cy="245" rx="60" ry="20" fill="#FF5577" opacity="0.05"/>
-        <ellipse cx="426" cy="247" rx="50" ry="16" fill="#4488FF" opacity="0.05"/>
-
-        <!-- Floor shadow -->
-        <ellipse cx="260" cy="397" rx="230" ry="10" fill="rgba(0,0,0,.06)"/>
+      <svg viewBox="0 0 480 360" style="width:100%;max-width:440px;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.1))" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="360" rx="14" fill="#EDE9E0"/>
+        <rect width="480" height="240" fill="#E8E3D8"/>
+        <rect y="240" width="480" height="120" fill="#DDD8CC"/>
+        <line x1="0" y1="240" x2="480" y2="240" stroke="#C8C2B0" stroke-width="1.5"/>
+        <rect x="40" y="0" width="400" height="5" rx="2" fill="#FFBF00" opacity=".85"/>
+        <rect x="40" y="5" width="400" height="14" fill="#FFBF00" opacity=".06"/>
+        <rect x="18" y="48" width="444" height="4" rx="2" fill="#C0B898"/>
+        <circle cx="48" cy="43" r="13" fill="#FFBF00" opacity=".82"/><circle cx="48" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="48" cy="43" r="3" fill="#FFBF00" opacity=".4"/>
+        <circle cx="78" cy="43" r="13" fill="#FF5577" opacity=".8"/><circle cx="78" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="78" cy="43" r="3" fill="#FF5577" opacity=".35"/>
+        <circle cx="108" cy="43" r="13" fill="#4488FF" opacity=".8"/><circle cx="108" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="108" cy="43" r="3" fill="#4488FF" opacity=".35"/>
+        <circle cx="138" cy="43" r="13" fill="#33BB77" opacity=".75"/><circle cx="138" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="138" cy="43" r="3" fill="#33BB77" opacity=".35"/>
+        <text x="165" y="47" font-family="Arial" font-size="7" fill="#A8A090" letter-spacing="1.5" font-weight="700">FILAMENT LIBRARY</text>
+        <rect x="168" y="65" width="144" height="24" rx="5" fill="rgba(255,191,0,.14)" stroke="#FFBF00" stroke-width="1.2" stroke-opacity=".5"/>
+        <text x="240" y="81" font-family="Arial Black" font-size="8.5" font-weight="900" fill="#FFBF00" text-anchor="middle" letter-spacing="1.5" opacity=".9">THE YOUNG MAKER</text>
+        <rect x="10" y="228" width="460" height="14" rx="4" fill="#B8AA80"/>
+        <rect x="10" y="242" width="9" height="118" rx="3" fill="#A89870"/>
+        <rect x="461" y="242" width="9" height="118" rx="3" fill="#A89870"/>
+        <rect x="156" y="242" width="7" height="118" rx="3" fill="#A89870"/>
+        <rect x="317" y="242" width="7" height="118" rx="3" fill="#A89870"/>
+        <!-- Printer A yellow -->
+        <rect x="24" y="120" width="118" height="108" rx="9" fill="#232320"/>
+        <rect x="35" y="154" width="96" height="66" rx="4" fill="#1A1A18"/>
+        <ellipse cx="83" cy="216" rx="16" ry="4.5" fill="#FFBF00" opacity=".9"/>
+        <path d="M67 216 Q65 194 75 187 Q83 182 91 187 Q101 194 99 216Z" fill="#FFBF00" opacity=".85"/>
+        <ellipse cx="83" cy="187" rx="11" ry="3.8" fill="#FFD350"/>
+        <rect x="29" y="124" width="110" height="6" rx="3" fill="#333330"/>
+        <rect x="29" y="124" width="6" height="104" rx="2" fill="#3A3A38"/>
+        <rect x="133" y="124" width="6" height="104" rx="2" fill="#3A3A38"/>
+        <rect x="57" y="138" width="50" height="13" rx="4" fill="#484846"/>
+        <rect x="80" y="151" width="6" height="7" rx="2" fill="#FFBF00" opacity=".9"/>
+        <path d="M83 143 Q98 128 112 112 Q121 103 129 94" stroke="#FFBF00" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
+        <circle cx="134" cy="89" r="20" fill="#282826"/><circle cx="134" cy="89" r="13" fill="#FFBF00" opacity=".8"/><circle cx="134" cy="89" r="5.5" fill="#1A1A18"/>
+        <rect x="35" y="128" width="24" height="17" rx="3" fill="#0A1520"/>
+        <rect x="38" y="131" width="18" height="4" rx="1" fill="#00FF88" opacity=".7"/>
+        <circle cx="134" cy="130" r="4.5" fill="#00FF88"/><circle cx="134" cy="130" r="8" fill="#00FF88" opacity=".18"/>
+        <!-- Printer B pink -->
+        <rect x="181" y="106" width="118" height="122" rx="9" fill="#232320"/>
+        <rect x="192" y="143" width="96" height="78" rx="4" fill="#1A1A18"/>
+        <ellipse cx="240" cy="217" rx="17" ry="4.5" fill="#FF5577" opacity=".9"/>
+        <polygon points="223,217 230,183 240,177 250,183 257,217" fill="#FF5577" opacity=".82"/>
+        <ellipse cx="240" cy="177" rx="13" ry="4" fill="#FF88AA"/>
+        <rect x="187" y="110" width="110" height="6" rx="3" fill="#333330"/>
+        <rect x="187" y="110" width="6" height="118" rx="2" fill="#3A3A38"/>
+        <rect x="291" y="110" width="6" height="118" rx="2" fill="#3A3A38"/>
+        <rect x="214" y="124" width="50" height="13" rx="4" fill="#484846"/>
+        <rect x="237" y="137" width="6" height="7" rx="2" fill="#FF5577" opacity=".9"/>
+        <path d="M240 129 Q255 112 272 96 Q282 86 290 76" stroke="#FF5577" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
+        <circle cx="295" cy="70" r="20" fill="#282826"/><circle cx="295" cy="70" r="13" fill="#FF5577" opacity=".8"/><circle cx="295" cy="70" r="5.5" fill="#1A1A18"/>
+        <rect x="192" y="114" width="24" height="17" rx="3" fill="#0A1520"/>
+        <rect x="195" y="117" width="18" height="4" rx="1" fill="#FF5577" opacity=".8"/>
+        <circle cx="293" cy="116" r="4.5" fill="#00FF88"/><circle cx="293" cy="116" r="8" fill="#00FF88" opacity=".18"/>
+        <!-- Printer C blue -->
+        <rect x="338" y="132" width="118" height="96" rx="9" fill="#232320"/>
+        <rect x="349" y="164" width="96" height="62" rx="4" fill="#1A1A18"/>
+        <ellipse cx="397" cy="222" rx="15" ry="4.5" fill="#4488FF" opacity=".9"/>
+        <rect x="382" y="193" width="30" height="29" rx="5" fill="#4488FF" opacity=".82"/>
+        <ellipse cx="397" cy="193" rx="15" ry="4.5" fill="#77AAFF"/>
+        <rect x="344" y="136" width="110" height="6" rx="3" fill="#333330"/>
+        <rect x="344" y="136" width="6" height="92" rx="2" fill="#3A3A38"/>
+        <rect x="448" y="136" width="6" height="92" rx="2" fill="#3A3A38"/>
+        <rect x="371" y="148" width="50" height="13" rx="4" fill="#484846"/>
+        <rect x="394" y="161" width="6" height="7" rx="2" fill="#4488FF" opacity=".9"/>
+        <path d="M397 153 Q411 138 426 122 Q435 112 442 100" stroke="#4488FF" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
+        <circle cx="447" cy="94" r="18" fill="#282826"/><circle cx="447" cy="94" r="11.5" fill="#4488FF" opacity=".8"/><circle cx="447" cy="94" r="5" fill="#1A1A18"/>
+        <rect x="349" y="140" width="22" height="16" rx="3" fill="#0A1520"/>
+        <rect x="352" y="143" width="16" height="3" rx="1" fill="#4488FF" opacity=".7"/>
+        <circle cx="446" cy="142" r="4.5" fill="#FFBF00" opacity=".9"/><circle cx="446" cy="142" r="8" fill="#FFBF00" opacity=".18"/>
+        <!-- Bench items -->
+        <ellipse cx="164" cy="227" rx="10" ry="3" fill="#FFBF00" opacity=".7"/>
+        <path d="M154 227 Q153 213 164 208 Q175 213 174 227Z" fill="#FFBF00" opacity=".65"/>
+        <circle cx="200" cy="222" r="8" fill="none" stroke="#888878" stroke-width="2.2"/>
+        <circle cx="200" cy="222" r="4" fill="#888878" opacity=".7"/>
+        <ellipse cx="326" cy="227" rx="8" ry="2.5" fill="#FF5577" opacity=".7"/>
+        <rect x="319" y="212" width="14" height="15" rx="3" fill="#FF5577" opacity=".65"/>
+        <circle cx="326" cy="209" r="5.5" fill="#FF5577" opacity=".7"/>
+        <rect x="16" y="14" width="88" height="22" rx="11" fill="#FFBF00" opacity=".95"/>
+        <circle cx="25" cy="25" r="2.8" fill="#1A1A18" opacity=".5"/>
+        <text x="57" y="29" font-family="Arial Black" font-size="8.5" font-weight="900" fill="#1A1A18" text-anchor="middle" letter-spacing="1.5">LIVE LAB</text>
       </svg>
     </div>
-
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">3D Printing Classes</span>
-    <span class="ticker-item">Birthday Parties</span>
-    <span class="ticker-item">Corporate Events</span>
-    <span class="ticker-item">Session Passes</span>
-    <span class="ticker-item">Print On Demand</span>
-    <span class="ticker-item">School Groups</span>
-    <span class="ticker-item">Custom Gifts</span>
-    <span class="ticker-item">Startup Prototypes</span>
-    <span class="ticker-item">3D Printing Classes</span>
-    <span class="ticker-item">Birthday Parties</span>
-    <span class="ticker-item">Corporate Events</span>
-    <span class="ticker-item">Session Passes</span>
-    <span class="ticker-item">Print On Demand</span>
-    <span class="ticker-item">School Groups</span>
-    <span class="ticker-item">Custom Gifts</span>
-    <span class="ticker-item">Startup Prototypes</span>
+<!-- 3D PRINTING & FILAMENT -->
+<section id="printing" class="r">
+  <div class="tag">3D printing &amp; filament</div>
+  <h2>What is 3D printing?</h2>
+  <p class="sub">Everything you need to know before your first session.</p>
+  <div class="print-types">
+    <div class="pt">
+      <div class="pt-icon" style="background:#FFF3CC">🖨️</div>
+      <div class="pt-name">FDM Printing</div>
+      <span class="pt-sub" style="background:#FFF3CC;color:#CC9900">Most common</span>
+      <p class="pt-desc">Fused filament — builds objects layer by layer from plastic filament. Great for functional parts, toys, keychains, and decorative objects.</p>
+    </div>
+    <div class="pt">
+      <div class="pt-icon" style="background:#F0F8FF">🌈</div>
+      <div class="pt-name">Multi-colour</div>
+      <span class="pt-sub" style="background:#F0F8FF;color:#0066CC">AMS system</span>
+      <p class="pt-desc">Our Bambu Lab printers use AMS (Automatic Material System) to switch between up to 4 colours mid-print — producing vibrant, multi-tone creations automatically.</p>
+    </div>
+    <div class="pt">
+      <div class="pt-icon" style="background:#F0FFF4">🧵</div>
+      <div class="pt-name">PLA Filament</div>
+      <span class="pt-sub" style="background:#F0FFF4;color:#009944">Beginner friendly</span>
+      <p class="pt-desc">PLA (Polylactic Acid) is our primary material — biodegradable, easy to print, available in 30+ colours including matte, silk, glow-in-the-dark, and metallic finishes.</p>
+    </div>
   </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="how-head r">
-    <div>
-      <div class="tag">How it works</div>
-      <h2>Design it. Print it. Own it.</h2>
-    </div>
-    <a href="#services" class="btn btn-ink">Book a class →</a>
-  </div>
-  <div class="steps">
-    <div class="step r">
-      <div class="sn">01</div>
-      <div class="step-t">Design your idea</div>
-      <p class="step-d">Use beginner-friendly Tinkercad to design anything from scratch. Staff guide every step — no experience needed.</p>
-    </div>
-    <div class="step r">
-      <div class="sn">02</div>
-      <div class="step-t">Watch it print</div>
-      <p class="step-d">See your design come to life layer by layer on our Bambu Lab printers. Multi-colour, fast, and mesmerising to watch.</p>
-    </div>
-    <div class="step r">
-      <div class="sn">03</div>
-      <div class="step-t">Take it home</div>
-      <p class="step-d">Every person leaves with something they designed and made. That feeling of "I made this" — that's the whole point.</p>
+  <div class="filament-rack">
+    <div class="fr-title">Our filament library — 30+ colours &amp; finishes</div>
+    <div class="filaments">
+      <div class="fil" style="background:#E8E4DC">
+        <div class="fil-swatch" style="background:#DEDAD0"></div>
+        <div class="fil-name" style="color:#5A5A52">Matte PLA</div>
+        <div class="fil-desc" style="color:#5A5A52">Smooth flat finish</div>
+      </div>
+      <div class="fil" style="background:#FFF8E0">
+        <div class="fil-swatch" style="background:#FFD700"></div>
+        <div class="fil-name" style="color:#7A5A00">Silk PLA</div>
+        <div class="fil-desc" style="color:#7A5A00">Shiny metallic look</div>
+      </div>
+      <div class="fil" style="background:#EEFFEE">
+        <div class="fil-swatch" style="background:#88FF88"></div>
+        <div class="fil-name" style="color:#005500">Glow in Dark</div>
+        <div class="fil-desc" style="color:#005500">Charges in light</div>
+      </div>
+      <div class="fil" style="background:#EEF6FF">
+        <div class="fil-swatch" style="background:#CCE8FF"></div>
+        <div class="fil-name" style="color:#004488">Transparent</div>
+        <div class="fil-desc" style="color:#004488">Crystal clear</div>
+      </div>
+      <div class="fil" style="background:#F5EDE0">
+        <div class="fil-swatch" style="background:#C4A882"></div>
+        <div class="fil-name" style="color:#5A3A10">Wood Fill</div>
+        <div class="fil-desc" style="color:#5A3A10">Real wood texture</div>
+      </div>
+      <div class="fil" style="background:#F0EEEC">
+        <div class="fil-swatch" style="background:#E8E4E0"></div>
+        <div class="fil-name" style="color:#555550">Marble</div>
+        <div class="fil-desc" style="color:#555550">Stone-like finish</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-  <div class="r">
-    <div class="tag">Our services</div>
-    <h2>Pick how you want to make.</h2>
-    <p class="sub">Three ways to get access to Singapore's most exciting creative lab.</p>
-  </div>
+<section id="services" class="r">
+  <div class="tag">Our services</div>
+  <h2>Two ways to get creative.</h2>
+  <p class="sub">Whether you're a first-timer or a regular maker, we have a format for you.</p>
   <div class="services-grid">
-
-    <div class="sc r">
-      <div class="sc-img">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Kids workshop class">
+    <!-- Class -->
+    <div class="sc">
+      <div class="sc-vis" style="background:#FFF8E8">
+        <div class="sc-vis-dots"></div>
+        <div style="font-size:60px;z-index:1">🎓</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#CC9900;margin-top:9px;z-index:1;opacity:.85">3D PRINTING CLASS</div>
       </div>
       <div class="sc-body">
         <div class="sc-icon">🖨️</div>
         <div class="sc-name">3D Printing Class</div>
-        <p class="sc-desc">A guided 2.5-hour session — design your own object, watch it print, take it home. Perfect for all ages.</p>
+        <p class="sc-desc">A guided 2.5-hour workshop. Choose from our project library or design your own using Tinkercad, watch it print, and take it home.</p>
         <div class="sc-price">$65–80</div>
-        <div class="sc-price-note">per person · all materials included</div>
+        <div class="sc-note">per person · all materials &amp; filament included</div>
         <ul class="sc-list">
-          <li>Tinkercad design session (beginner-friendly)</li>
-          <li>Staff-guided from concept to print</li>
-          <li>Ages 6+ · School groups $45–60/pax</li>
+          <li>Choose from MakerWorld project library or design your own</li>
+          <li>Multi-colour printing available</li>
+          <li>Ages 6 and up · school groups $45–60/pax</li>
+          <li>Weekday &amp; weekend slots available</li>
         </ul>
         <a href="#cta" class="sc-btn scb-ol">Book a class</a>
       </div>
     </div>
-
-    <div class="sc pop r">
-      <div class="sc-img" style="position:relative">
-        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="3D printer session">
-        <div class="sc-pop-badge">Most Popular</div>
+    <!-- Pass -->
+    <div class="sc pop">
+      <div class="sc-vis" style="background:#F0F8FF;position:relative">
+        <div class="sc-vis-dots"></div>
+        <div class="sc-pop-badge">Best value</div>
+        <div style="font-size:60px;z-index:1">🎟️</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0066CC;margin-top:9px;z-index:1;opacity:.85">SESSION PASS</div>
       </div>
       <div class="sc-body">
         <div class="sc-icon">🎟️</div>
         <div class="sc-name">Session Pass</div>
-        <p class="sc-desc">Pre-paid bundles at a discount. Drop in whenever, keep building your skills and save the more you come.</p>
-        <div class="sc-price">$120</div>
-        <div class="sc-price-note">4-session pass · save 15%</div>
+        <p class="sc-desc">Pre-paid print credits. Pick from our MakerWorld library, use credits to print, and come back whenever. Credits never expire.</p>
+        <div class="sc-price">From $48</div>
+        <div class="sc-note">1 credit = 1 hour · max 4 credits per session</div>
         <ul class="sc-list">
-          <li>4 drop-in sessions (90 min each), 3 months</li>
+          <li>Choose any project from the MakerWorld library</li>
           <li>Priority booking over walk-ins</li>
-          <li>Monthly membership: $120–150/mo</li>
+          <li>4-pack $48 · 8-pack $88 · 16-pack $160</li>
+          <li>Credits never expire</li>
         </ul>
-        <a href="#cta" class="sc-btn scb-y">Get the pass →</a>
+        <a href="#credits" class="sc-btn scb-y">See credit packs →</a>
       </div>
     </div>
-
-    <div class="sc r">
-      <div class="sc-img">
-        <img src="https://images.unsplash.com/photo-1612690669207-fed642192c40?w=600&q=80" alt="3D printed objects">
-      </div>
-      <div class="sc-body">
-        <div class="sc-icon">📦</div>
-        <div class="sc-name">Print-on-Demand</div>
-        <p class="sc-desc">Send us your file — we print it. 30+ colours, same-day turnaround, AI 2D-to-3D conversion available.</p>
-        <div class="sc-price">$15–120</div>
-        <div class="sc-price-note">per piece · size & complexity</div>
-        <ul class="sc-list">
-          <li>Send any STL or 3MF file</li>
-          <li>AI photo-to-3D conversion: +$20</li>
-          <li>Event souvenirs from $8/piece (min 20)</li>
-        </ul>
-        <a href="#cta" class="sc-btn scb-ink">Submit a file</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- USE CASES -->
-<section id="usecases">
-  <div class="r">
-    <div class="tag">What will you make?</div>
-    <h2>3D printing is a superpower.</h2>
-    <p class="sub">Our members use what they learn here to launch businesses, impress teachers, and create things that didn't exist before.</p>
+<!-- PROJECTS -->
+<section id="projects" class="r">
+  <div class="proj-head">
+    <div>
+      <div class="tag">What you can print</div>
+      <h2>16 projects. All under 4 hours.</h2>
+      <p class="sub" style="margin-top:8px">Every project from MakerWorld MakerLab. New ones added monthly.</p>
+    </div>
+    <a href="https://makerworld.com/en/makerlab" target="_blank" class="btn btn-ink">Browse MakerLab →</a>
   </div>
-  <div class="uc-grid">
+  <div class="proj-filters">
+    <button class="pf active" onclick="filterProj('all',this)">All Projects</button>
+    <button class="pf" onclick="filterProj('quick',this)">⚡ Quick (under 1hr)</button>
+    <button class="pf" onclick="filterProj('standard',this)">🕐 Standard (1–2hr)</button>
+    <button class="pf" onclick="filterProj('premium',this)">⭐ Premium (2–4hr)</button>
+    <button class="pf" onclick="filterProj('kids',this)">Kids favourites</button>
+    <button class="pf" onclick="filterProj('useful',this)">Practical &amp; useful</button>
+    <button class="pf" onclick="filterProj('art',this)">Art &amp; decor</button>
+  </div>
 
-    <div class="uc r">
-      <div class="uc-img"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&q=80" alt="Young entrepreneur with product"></div>
-      <div class="uc-body">
-        <div class="uc-ey">Startup Founder</div>
-        <div class="uc-title">Print your first product. Sell it online.</div>
-        <p class="uc-desc">Marcus learned 3D design here and now earns $4,200/month selling custom desk accessories on Shopee. No factory, no minimum order — just a great design and the skills to print it.</p>
-        <span class="uc-pill">Product startup</span>
+  <!-- Tier 1 -->
+  <div class="tier-section" id="tier1">
+    <div class="tier-head">
+      <span class="tier-badge" style="background:#FFF3CC;color:#CC9900">Tier 1 — 1 credit</span>
+      <span class="tier-title">Quick wins — under 1 hour</span>
+      <span class="tier-note">Perfect for first-timers &amp; kids</span>
+    </div>
+    <div class="proj-grid">
+      <div class="pc" data-tags="all quick kids">
+        <div class="pc-vis" style="background:#FFF3CC"><div class="pc-vis-pattern"></div><div class="pc-badge">Popular</div><div class="pc-icon">🔑</div><div class="pc-label" style="color:#CC9900">Keychain</div></div>
+        <div class="pc-body"><div class="pc-name">Image to Keychain</div><div class="pc-tool">via Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div></div>
+      </div>
+      <div class="pc" data-tags="all quick useful">
+        <div class="pc-vis" style="background:#F0F8FF"><div class="pc-vis-pattern"></div><div class="pc-icon">🪧</div><div class="pc-label" style="color:#0066CC">Sign</div></div>
+        <div class="pc-body"><div class="pc-name">Make My Sign</div><div class="pc-tool">via Make My Sign</div><p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print it in minutes.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div></div>
+      </div>
+      <div class="pc" data-tags="all quick kids">
+        <div class="pc-vis" style="background:#FFF0F8"><div class="pc-vis-pattern"></div><div class="pc-badge">Kids fave</div><div class="pc-icon">🖱️</div><div class="pc-label" style="color:#CC0066">Clicker</div></div>
+        <div class="pc-body"><div class="pc-name">Fidget Clicker</div><div class="pc-tool">via Community models</div><p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div></div>
+      </div>
+      <div class="pc" data-tags="all quick art kids">
+        <div class="pc-vis" style="background:#F0FFF0"><div class="pc-vis-pattern"></div><div class="pc-icon">✨</div><div class="pc-label" style="color:#009944">Ornament</div></div>
+        <div class="pc-body"><div class="pc-name">Spinning Ornament</div><div class="pc-tool">via Christmas Ornament Maker</div><p class="pc-desc">Customisable 2D spinning disc — works year-round as décor, gift tag, or window hanging.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">25–40 min</span></div></div>
       </div>
     </div>
+  </div>
 
-    <div class="uc r">
-      <div class="uc-img"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80" alt="Student with school project model"></div>
-      <div class="uc-body">
-        <div class="uc-ey">Students</div>
-        <div class="uc-title">Bring your school project to life</div>
-        <p class="uc-desc">Print a 3D cell model for biology, a scale building for design class, or a gear mechanism for D&T. Stand out with something your teacher can actually hold.</p>
-        <span class="uc-pill">School projects</span>
+  <!-- Tier 2 -->
+  <div class="tier-section" id="tier2">
+    <div class="tier-head">
+      <span class="tier-badge" style="background:#FFE8CC;color:#994400">Tier 2 — 1–2 credits</span>
+      <span class="tier-title">Core session projects — 1 to 2 hours</span>
+      <span class="tier-note">Great for returning visitors</span>
+    </div>
+    <div class="proj-grid">
+      <div class="pc" data-tags="all standard kids">
+        <div class="pc-vis" style="background:#F8F0FF"><div class="pc-vis-pattern"></div><div class="pc-badge">Staff pick</div><div class="pc-icon">🐉</div><div class="pc-label" style="color:#7700CC">Flexi Toy</div></div>
+        <div class="pc-body"><div class="pc-name">Flexi Toy</div><div class="pc-tool">via Flexi Toy Maker</div><p class="pc-desc">Upload an image — it bends into an articulated flexi toy. Print-in-place, no assembly needed.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard kids">
+        <div class="pc-vis" style="background:#FFF3E0"><div class="pc-vis-pattern"></div><div class="pc-icon">🐲</div><div class="pc-label" style="color:#CC5500">Creature</div></div>
+        <div class="pc-body"><div class="pc-name">PrintMon Creature</div><div class="pc-tool">via PrintMon Maker</div><p class="pc-desc">Design your own fantasy creature. Multi-colour supported. Every PrintMon is unique.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–1.5 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard art">
+        <div class="pc-vis" style="background:#FFF3CC"><div class="pc-vis-pattern"></div><div class="pc-icon">🏺</div><div class="pc-label" style="color:#CC9900">Vase</div></div>
+        <div class="pc-body"><div class="pc-name">Make My Vase</div><div class="pc-tool">via Make My Vase</div><p class="pc-desc">Design a custom vase shape by clicking options. Spiral vase mode prints fast and looks beautiful.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard kids">
+        <div class="pc-vis" style="background:#F0FFF8"><div class="pc-vis-pattern"></div><div class="pc-icon">🧩</div><div class="pc-label" style="color:#009966">Puzzle</div></div>
+        <div class="pc-body"><div class="pc-name">Pixel Puzzle</div><div class="pc-tool">via Pixel Puzzle Maker</div><p class="pc-desc">Turn any image into a multi-piece printable pixel puzzle. A take-home activity that keeps going.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard art">
+        <div class="pc-vis" style="background:#FFF8F0"><div class="pc-vis-pattern"></div><div class="pc-icon">🎨</div><div class="pc-label" style="color:#CC6600">Sculpture</div></div>
+        <div class="pc-body"><div class="pc-name">Relief Sculpture</div><div class="pc-tool">via Relief Sculpture Maker</div><p class="pc-desc">3D relief from any image — rises off the surface. Impressive wall art or desk display piece.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard useful">
+        <div class="pc-vis" style="background:#F0F8FF"><div class="pc-vis-pattern"></div><div class="pc-icon">🗂️</div><div class="pc-label" style="color:#0066CC">Organizer</div></div>
+        <div class="pc-body"><div class="pc-name">Desk Organizer</div><div class="pc-tool">via Make My Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard art">
+        <div class="pc-vis" style="background:#FFFBF0"><div class="pc-vis-pattern"></div><div class="pc-icon">🏮</div><div class="pc-label" style="color:#CC8800">Lantern</div></div>
+        <div class="pc-body"><div class="pc-name">Make My Lantern</div><div class="pc-tool">via Make My Lantern</div><p class="pc-desc">Hollowed lantern from an image. Pop a candle or LED inside — it glows beautifully at night.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard art">
+        <div class="pc-vis" style="background:#FFF0F8"><div class="pc-vis-pattern"></div><div class="pc-icon">🖼️</div><div class="pc-label" style="color:#CC0077">Canvas</div></div>
+        <div class="pc-body"><div class="pc-name">Chroma Canvas</div><div class="pc-tool">via Chroma Canvas</div><p class="pc-desc">Turn any image into a vibrant multi-colour filament painting. Like a printed photo in plastic layers.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
       </div>
     </div>
+  </div>
 
-    <div class="uc r">
-      <div class="uc-img"><img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=700&q=80" alt="Personalised gift being unwrapped"></div>
-      <div class="uc-body">
-        <div class="uc-ey">Gift Maker</div>
-        <div class="uc-title">Make gifts that can't be bought anywhere</div>
-        <p class="uc-desc">Print a miniature of someone's home. Recreate their pet in 3D. Make a custom name sign in any font. The most personal gifts are made, not bought.</p>
-        <span class="uc-pill">Unique gifts</span>
+  <!-- Tier 3 -->
+  <div class="tier-section" id="tier3">
+    <div class="tier-head">
+      <span class="tier-badge" style="background:#EEE0FF;color:#6600CC">Tier 3 — 3–4 credits</span>
+      <span class="tier-title">Premium projects — 2 to 4 hours</span>
+      <span class="tier-note">Maximum wow factor · best with Maker Pack</span>
+    </div>
+    <div class="proj-grid">
+      <div class="pc" data-tags="all premium art">
+        <div class="pc-vis" style="background:#F8F0FF"><div class="pc-vis-pattern"></div><div class="pc-badge">Wow factor</div><div class="pc-icon">👤</div><div class="pc-label" style="color:#6600CC">Statue</div></div>
+        <div class="pc-body"><div class="pc-name">Make My Statue</div><div class="pc-tool">via Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all premium art">
+        <div class="pc-vis" style="background:#FFFFF0"><div class="pc-vis-pattern"></div><div class="pc-badge">Staff pick</div><div class="pc-icon">💡</div><div class="pc-label" style="color:#888800">Lightbox</div></div>
+        <div class="pc-body"><div class="pc-name">Lightbox</div><div class="pc-tool">via Lightbox Maker</div><p class="pc-desc">Glowing illuminated lightbox with text, images, or patterns. Add an LED insert — take home a lamp.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">2.5–4 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all premium art">
+        <div class="pc-vis" style="background:#F0F4FF"><div class="pc-vis-pattern"></div><div class="pc-icon">🌅</div><div class="pc-label" style="color:#4444CC">Shadowbox</div></div>
+        <div class="pc-body"><div class="pc-name">Shadowbox</div><div class="pc-tool">via Shadowbox Maker</div><p class="pc-desc">Layered panels that stack into a beautiful 3D dimensional scene. Stunning framed display.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all premium art">
+        <div class="pc-vis" style="background:#F8F8FF"><div class="pc-vis-pattern"></div><div class="pc-badge">Best for gifts</div><div class="pc-icon">📸</div><div class="pc-label" style="color:#5500BB">Lithophane</div></div>
+        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><div class="pc-tool">via Make My Lithophane</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">2.5–3.5 hr</span></div></div>
       </div>
     </div>
+  </div>
 
-    <div class="uc r">
-      <div class="uc-img"><img src="https://images.unsplash.com/photo-1581091215367-9b6c00b3035a?w=700&q=80" alt="Engineer prototyping in a workshop"></div>
-      <div class="uc-body">
-        <div class="uc-ey">Inventors & Makers</div>
-        <div class="uc-title">Prototype before factory costs kick in</div>
-        <p class="uc-desc">Have a product idea? Print a working prototype in days. Test it, refine it, pitch it to investors — all for the cost of a few sessions.</p>
-        <span class="uc-pill">Prototyping</span>
+  <div style="text-align:center;margin-top:8px">
+    <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month. Session Pass holders get early access.</p>
+    <a href="https://makerworld.com/en/makerlab" target="_blank" class="btn btn-ol">Explore all MakerLab tools →</a>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section id="credits" class="r">
+  <div class="tag">Session Pass pricing</div>
+  <h2>Simple credits.</h2>
+  <p class="sub">1 credit = 1 hour of print time. Credits never expire.</p>
+  <div class="credits-grid">
+    <div class="cr-rules">
+      <div class="cr-rule"><span class="cr-icon">⏱️</span><div><div class="cr-t">1 credit = 1 hour of print time</div><p class="cr-d">Max 4 credits (4 hours) per session. Mix and match projects as long as total credits ≤ 4.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Pick from our project library</div><p class="cr-d">Session Pass holders choose from our curated MakerWorld library. Each project shows its credit cost upfront.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">🎨</span><div><div class="cr-t">All filament included</div><p class="cr-d">All filament, build plate prep, and printer maintenance are included in your credits. You only pay for time.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">♾️</span><div><div class="cr-t">Credits never expire</div><p class="cr-d">Use them at your own pace. Bigger packs give you a lower cost per credit and priority booking.</p></div></div>
+    </div>
+    <div class="cr-tiers">
+      <div class="tier">
+        <div class="tier-row"><span class="tier-name">Starter Pack</span><span class="tier-price">$48 <span>/ pack</span></span></div>
+        <div class="tier-chips"><span class="chip">4 credits</span><span style="font-size:12px;color:var(--light)">= $12 per credit</span></div>
+        <ul class="tier-perks"><li>1 full session (up to 4 hrs printing)</li><li>Access to full project library</li><li>Great for trying before committing</li></ul>
+      </div>
+      <div class="tier pop">
+        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Regular Pack</span><span class="pop-badge">Best value</span></div><span class="tier-price">$88 <span>/ pack</span></span></div>
+        <div class="tier-chips"><span class="chip">8 credits</span><span style="font-size:12px;color:var(--light)">= $11 per credit · save 8%</span></div>
+        <ul class="tier-perks"><li>2 full sessions (up to 4 hrs each)</li><li>Priority booking over walk-ins</li><li>Early access to new library projects</li></ul>
+      </div>
+      <div class="tier">
+        <div class="tier-row"><span class="tier-name">Maker Pack</span><span class="tier-price">$160 <span>/ pack</span></span></div>
+        <div class="tier-chips"><span class="chip">16 credits</span><span style="font-size:12px;color:var(--light)">= $10 per credit · save 17%</span></div>
+        <ul class="tier-perks"><li>4 full sessions — best per-credit rate</li><li>Priority booking + dedicated time slot</li><li>1 guest pass included</li></ul>
+      </div>
+      <div class="cr-example">
+        <p><strong style="font-family:'League Spartan',sans-serif;color:var(--ink)">Example:</strong> Fidget Clicker = 1 credit (~45 min). LED Lightbox = 3–4 credits (~2.5–4 hr). Keychain = 1 credit (~30 min). Mix projects in one session as long as total ≤ 4 credits.</p>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- EVENTS -->
-<section id="events">
-  <div class="r">
-    <div class="tag">Birthday & Corporate Events</div>
-    <h2>The most memorable party. Ever.</h2>
-  </div>
+<section id="events" class="r">
+  <div class="tag">Birthday &amp; Corporate</div>
+  <h2>Book our lab for your event.</h2>
+  <p class="sub">Birthday parties, corporate workshops, school excursions — we host it all.</p>
   <div class="events-layout">
-    <div class="ev-img r">
-      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Kids birthday party activity">
+    <div class="ev-perks">
+      <div class="ev-perk"><span class="ep-icon">🧑‍🏫</span><div><div class="ep-t">Staff provided</div><p class="ep-d">Our trained staff host and facilitate the entire session — you just show up and enjoy.</p></div></div>
+      <div class="ev-perk"><span class="ep-icon">🔒</span><div><div class="ep-t">Private lab hire</div><p class="ep-d">The entire lab is yours for the duration. No other guests — fully private for your group.</p></div></div>
+      <div class="ev-perk"><span class="ep-icon">🎨</span><div><div class="ep-t">All materials &amp; filament included</div><p class="ep-d">Every colour, every material, all consumables included. No hidden costs.</p></div></div>
+      <div class="ev-perk"><span class="ep-icon">🎁</span><div><div class="ep-t">Everyone takes home a creation</div><p class="ep-d">Every participant designs and prints something they made themselves to keep.</p></div></div>
     </div>
-    <div>
-      <div class="ev-types r">
-        <div class="ev-type">
-          <div class="et-icon">🎂</div>
-          <div>
-            <div class="et-name">Kids Birthday Parties</div>
-            <p class="et-desc">Every child designs and prints their own creation to take home. Better than any loot bag — they made it themselves.</p>
-          </div>
-        </div>
-        <div class="ev-type">
-          <div class="et-icon">👔</div>
-          <div>
-            <div class="et-name">Corporate Team Building</div>
-            <p class="et-desc">Half-day creative sessions for teams. Design, build, collaborate — leave with something tangible you made together.</p>
-          </div>
-        </div>
-        <div class="ev-type">
-          <div class="et-icon">🏫</div>
-          <div>
-            <div class="et-name">School Excursions</div>
-            <p class="et-desc">STEM-aligned sessions for primary and secondary students. Every student takes home a 3D printed creation.</p>
-          </div>
-        </div>
+    <div class="ev-cta">
+      <div class="ev-cta-icon">🎉</div>
+      <h3>Ready to book your event?</h3>
+      <p>Birthday parties from <strong>$45/child</strong> · Corporate workshops from <strong>$80/person</strong> · School groups from <strong>$45/student</strong>.<br>Minimum 8 pax. All ages welcome.</p>
+      <div class="ev-cta-btn">
+        <a href="mailto:events@youngmaker.sg" class="btn btn-ink" style="font-size:15px;padding:15px 28px;width:100%;justify-content:center">Contact us to book your event →</a>
+        <p class="ev-note">WhatsApp +65 xxxx xxxx · We reply within the hour</p>
       </div>
-      <div class="ev-price r">
-        <div>
-          <div class="evp-from">Group pricing from</div>
-          <div class="evp-num">$45</div>
-          <div class="evp-unit">per person · min 10 pax · all materials</div>
-        </div>
-        <a href="#cta" class="btn btn-ink">Enquire now →</a>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="usecases" class="r">
+  <div class="tag">Use cases</div>
+  <h2>3D printing is a superpower.</h2>
+  <p class="sub">Our members launch businesses, impress teachers, and create things that didn't exist before.</p>
+  <div class="uc-grid">
+    <div class="uc">
+      <div class="uc-vis" style="background:#FFF3CC"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🚀</div><div class="uc-vis-label" style="color:#CC9900">Startup Founder</div></div>
+      <div class="uc-body"><div class="uc-ey">Startup Founder</div><div class="uc-title">Print your first product. Sell it online.</div><p class="uc-desc">Marcus learned 3D design here and now earns $4,200/month selling custom desk accessories on Shopee. No factory, no MOQ — just a great design and the skills to print it.</p><span class="uc-pill">Product startup</span></div>
+    </div>
+    <div class="uc">
+      <div class="uc-vis" style="background:#F0F8FF"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🎓</div><div class="uc-vis-label" style="color:#0066CC">Students</div></div>
+      <div class="uc-body"><div class="uc-ey">Students</div><div class="uc-title">Bring your school project to life</div><p class="uc-desc">Print a 3D cell model for biology, a scale building for design class, or a gear mechanism for D&amp;T. Stand out with something your teacher can actually hold.</p><span class="uc-pill">School projects</span></div>
+    </div>
+    <div class="uc">
+      <div class="uc-vis" style="background:#FFF0F8"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🎁</div><div class="uc-vis-label" style="color:#CC0066">Gift Maker</div></div>
+      <div class="uc-body"><div class="uc-ey">Gift Maker</div><div class="uc-title">Make gifts that can't be bought anywhere</div><p class="uc-desc">Print a miniature of someone's home. Recreate their pet in 3D. The most personal gifts are made, not bought — and we'll help you make them.</p><span class="uc-pill">Unique gifts</span></div>
+    </div>
+    <div class="uc">
+      <div class="uc-vis" style="background:#F0FFF4"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">⚙️</div><div class="uc-vis-label" style="color:#009944">Inventors</div></div>
+      <div class="uc-body"><div class="uc-ey">Inventors</div><div class="uc-title">Prototype before factory costs kick in</div><p class="uc-desc">Have a product idea? Print a working prototype in days. Test it, refine it, pitch it to investors — all for the cost of a few credits.</p><span class="uc-pill">Prototyping</span></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="stories">
-  <div class="r" style="text-align:center">
+<section id="stories" class="r">
+  <div style="text-align:center;margin-bottom:44px">
     <div class="tag">Real makers, real stories</div>
     <h2>Made at The Young Maker</h2>
   </div>
   <div class="tgrid">
-    <div class="tc r">
-      <div class="tc-img"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&q=80" alt="Happy parent and child"></div>
+    <div class="tc">
+      <div class="tc-vis" style="background:#FFF3CC">👨‍👧</div>
       <div class="tc-body">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-q">My daughter designed a jewellery box in her first session. Her dad signed up for the adult slot that same week. We're now a maker family.</p>
-        <div class="tc-a"><div class="tc-av">SN</div><div><div class="tc-n">Siti N.</div><div class="tc-r">Parent · Tampines</div></div></div>
+        <div class="tc-a"><div class="tc-av" style="background:var(--y)">SN</div><div><div class="tc-n">Siti N.</div><div class="tc-r">Parent · Tampines</div></div></div>
       </div>
     </div>
-    <div class="tc r">
-      <div class="tc-img"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=80" alt="Team collaborating together"></div>
+    <div class="tc">
+      <div class="tc-vis" style="background:#FFE8E8">🎂</div>
       <div class="tc-body">
         <div class="tc-stars">★★★★★</div>
-        <p class="tc-q">We booked for our team's year-end event. 20 people, zero 3D printing experience — everyone was completely absorbed. Best team building we've done.</p>
-        <div class="tc-a"><div class="tc-av">JT</div><div><div class="tc-n">James T.</div><div class="tc-r">Marketing Director</div></div></div>
+        <p class="tc-q">Booked for my son's 9th birthday. 12 kids, 12 prints, zero drama. Every child was absorbed the whole 2 hours. Best birthday party idea ever.</p>
+        <div class="tc-a"><div class="tc-av" style="background:#FF5577">JL</div><div><div class="tc-n">Jenny L.</div><div class="tc-r">Parent · Bishan</div></div></div>
       </div>
     </div>
-    <div class="tc r">
-      <div class="tc-img"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80" alt="Young person working on creative project"></div>
+    <div class="tc">
+      <div class="tc-vis" style="background:#E8F0FF">🚀</div>
       <div class="tc-body">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-q">One session, now a Shopee side business earning $4K/month. Never expected 3D printing to change my life like this.</p>
-        <div class="tc-a"><div class="tc-av">ML</div><div><div class="tc-n">Marcus L.</div><div class="tc-r">Startup founder, age 24</div></div></div>
+        <div class="tc-a"><div class="tc-av" style="background:#4488FF">ML</div><div><div class="tc-n">Marcus L.</div><div class="tc-r">Startup founder, age 24</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="cta">
-  <div class="r">
-    <div class="tag">Ready to make something?</div>
-    <h2>Singapore's First 3D Printing Lab.<br>Bring Your Ideas to Life.</h2>
-    <p>No experience needed. Just show up with an idea. First-timers get 10% off.</p>
-    <div class="cta-btns">
-      <a href="mailto:hello@youngmaker.sg" class="btn btn-ink" style="font-size:16px;padding:16px 38px">Book a Class →</a>
-      <a href="mailto:events@youngmaker.sg" class="btn btn-ol" style="font-size:16px;padding:16px 38px">Enquire about events</a>
-    </div>
-    <p class="cta-note">Or WhatsApp +65 xxxx xxxx — we reply within the hour</p>
+<section id="cta" class="r">
+  <div class="tag">Ready to make something?</div>
+  <h2>Singapore's First 3D Printing Lab.<br>Bring Your Ideas to Life.</h2>
+  <p>No experience needed. Just show up with curiosity. First-timers get 10% off.</p>
+  <div class="cta-btns">
+    <a href="mailto:hello@youngmaker.sg" class="btn btn-ink" style="font-size:16px;padding:15px 36px">Book a Class →</a>
+    <a href="mailto:events@youngmaker.sg" class="btn btn-ol" style="font-size:16px;padding:15px 36px">Enquire about events</a>
   </div>
+  <p class="cta-note">Or WhatsApp +65 xxxx xxxx — we reply within the hour · First-timers get 10% off</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="ft-brand">
-    <div class="ft-logo"><div class="lm">YM</div><span class="ft-logo-t">The Young Maker</span></div>
+    <a href="#" class="ft-logo"><div class="lm">YM</div><span class="ft-logo-t">The Young Maker</span></a>
     <p>Singapore's first 3D printing lab. We turn curious minds into confident makers — and sometimes, founders.</p>
   </div>
   <div class="ft-col">
@@ -687,8 +741,8 @@ h2{font-size:clamp(28px,3.6vw,50px);font-weight:900;letter-spacing:-1.5px;line-h
     <h4>Services</h4>
     <a href="#services">3D Printing Classes</a>
     <a href="#services">Session Pass</a>
-    <a href="#services">Print-on-Demand</a>
-    <a href="#events">Birthday & Events</a>
+    <a href="#events">Birthday Parties</a>
+    <a href="#events">Corporate Workshops</a>
   </div>
   <div class="ft-col">
     <h4>Connect</h4>
@@ -704,12 +758,30 @@ h2{font-size:clamp(28px,3.6vw,50px);font-weight:900;letter-spacing:-1.5px;line-h
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('on'), i*80)
+// Reveal on scroll
+const io = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('on'),i*80)
   })
-},{threshold:0.1})
+},{threshold:0.08})
 document.querySelectorAll('.r').forEach(el=>io.observe(el))
+
+// Project filters
+function filterProj(tag, btn) {
+  document.querySelectorAll('.pf').forEach(b=>b.classList.remove('active'))
+  btn.classList.add('active')
+  document.querySelectorAll('.pc').forEach(card=>{
+    const tags = card.dataset.tags || ''
+    card.classList.toggle('hidden', !tags.includes(tag))
+  })
+  // Show/hide tier headings if all cards hidden
+  ;['tier1','tier2','tier3'].forEach(id=>{
+    const section = document.getElementById(id)
+    if(!section) return
+    const visible = section.querySelectorAll('.pc:not(.hidden)').length
+    section.style.display = visible ? '' : 'none'
+  })
+}
 </script>
 </body>
 </html>
