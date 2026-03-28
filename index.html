@@ -44,7 +44,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
 
 /* HERO */
-#hero{padding-top:66px;background:var(--gray);overflow:hidden}
+#hero{padding-top:66px;background:var(--gray);overflow:hidden;position:relative}
+#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--white));pointer-events:none;z-index:3}
 .hero-grid{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center}
 .hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;max-width:620px;background:linear-gradient(to right,rgba(253,252,248,.92) 70%,rgba(253,252,248,0) 100%)}
 .hero-ey{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:18px}
