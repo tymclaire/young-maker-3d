@@ -44,9 +44,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
 
 /* HERO */
-#hero{padding-top:66px;background:var(--bg)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 66px)}
-.hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center}
+#hero{padding-top:66px;background:var(--gray);overflow:hidden}
+.hero-grid{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center}
+.hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;max-width:620px;background:linear-gradient(to right,rgba(253,252,248,.92) 70%,rgba(253,252,248,0) 100%)}
 .hero-ey{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:18px}
 .eyeline{width:28px;height:2px;background:var(--y);border-radius:2px}
 h1{font-family:'League Spartan',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:10px}
@@ -57,8 +57,8 @@ h1 .yel{color:var(--y)}
 .hero-nums{display:flex;gap:32px;margin-top:40px;padding-top:26px;border-top:1px solid var(--border)}
 .hn-n{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--y)}
 .hn-l{font-size:11px;color:var(--light);margin-top:2px;font-weight:300}
-.hero-right{background:var(--gray);display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden}
-.hero-right::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:var(--y);opacity:.09;filter:blur(70px)}
+.hero-right{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-right canvas{width:100%!important;height:100%!important}
 
 /* SECTION */
 section{padding:88px 5%}
@@ -224,8 +224,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
 .ft-y{color:var(--y);font-family:'League Spartan',sans-serif;font-weight:700}
 
 @media(max-width:860px){
-  .hero-grid,.services-grid,.uc-grid,.events-layout,.credits-grid{grid-template-columns:1fr}
-  .hero-right{min-height:300px}
+  .services-grid,.uc-grid,.events-layout,.credits-grid{grid-template-columns:1fr}
+  .hero-left{max-width:100%;background:linear-gradient(to bottom,rgba(253,252,248,.92) 80%,rgba(253,252,248,0) 100%)}
   .print-types,.tgrid,.proj-grid{grid-template-columns:1fr 1fr}
   .filaments{grid-template-columns:repeat(3,1fr)}
   footer{grid-template-columns:1fr 1fr}
@@ -235,6 +235,14 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   .print-types,.proj-grid,.tgrid,.filaments{grid-template-columns:1fr}
 }
 </style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -270,87 +278,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
         <div><div class="hn-n">#1</div><div class="hn-l">In Singapore</div></div>
       </div>
     </div>
-    <div class="hero-right">
-      <svg viewBox="0 0 480 360" style="width:100%;max-width:440px;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.1))" xmlns="http://www.w3.org/2000/svg">
-        <rect width="480" height="360" rx="14" fill="#EDE9E0"/>
-        <rect width="480" height="240" fill="#E8E3D8"/>
-        <rect y="240" width="480" height="120" fill="#DDD8CC"/>
-        <line x1="0" y1="240" x2="480" y2="240" stroke="#C8C2B0" stroke-width="1.5"/>
-        <rect x="40" y="0" width="400" height="5" rx="2" fill="#FFBF00" opacity=".85"/>
-        <rect x="40" y="5" width="400" height="14" fill="#FFBF00" opacity=".06"/>
-        <rect x="18" y="48" width="444" height="4" rx="2" fill="#C0B898"/>
-        <circle cx="48" cy="43" r="13" fill="#FFBF00" opacity=".82"/><circle cx="48" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="48" cy="43" r="3" fill="#FFBF00" opacity=".4"/>
-        <circle cx="78" cy="43" r="13" fill="#FF5577" opacity=".8"/><circle cx="78" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="78" cy="43" r="3" fill="#FF5577" opacity=".35"/>
-        <circle cx="108" cy="43" r="13" fill="#4488FF" opacity=".8"/><circle cx="108" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="108" cy="43" r="3" fill="#4488FF" opacity=".35"/>
-        <circle cx="138" cy="43" r="13" fill="#33BB77" opacity=".75"/><circle cx="138" cy="43" r="7.5" fill="#EDE9E0"/><circle cx="138" cy="43" r="3" fill="#33BB77" opacity=".35"/>
-        <text x="165" y="47" font-family="Arial" font-size="7" fill="#A8A090" letter-spacing="1.5" font-weight="700">FILAMENT LIBRARY</text>
-        <rect x="168" y="65" width="144" height="24" rx="5" fill="rgba(255,191,0,.14)" stroke="#FFBF00" stroke-width="1.2" stroke-opacity=".5"/>
-        <text x="240" y="81" font-family="Arial Black" font-size="8.5" font-weight="900" fill="#FFBF00" text-anchor="middle" letter-spacing="1.5" opacity=".9">THE YOUNG MAKER</text>
-        <rect x="10" y="228" width="460" height="14" rx="4" fill="#B8AA80"/>
-        <rect x="10" y="242" width="9" height="118" rx="3" fill="#A89870"/>
-        <rect x="461" y="242" width="9" height="118" rx="3" fill="#A89870"/>
-        <rect x="156" y="242" width="7" height="118" rx="3" fill="#A89870"/>
-        <rect x="317" y="242" width="7" height="118" rx="3" fill="#A89870"/>
-        <!-- Printer A yellow -->
-        <rect x="24" y="120" width="118" height="108" rx="9" fill="#232320"/>
-        <rect x="35" y="154" width="96" height="66" rx="4" fill="#1A1A18"/>
-        <ellipse cx="83" cy="216" rx="16" ry="4.5" fill="#FFBF00" opacity=".9"/>
-        <path d="M67 216 Q65 194 75 187 Q83 182 91 187 Q101 194 99 216Z" fill="#FFBF00" opacity=".85"/>
-        <ellipse cx="83" cy="187" rx="11" ry="3.8" fill="#FFD350"/>
-        <rect x="29" y="124" width="110" height="6" rx="3" fill="#333330"/>
-        <rect x="29" y="124" width="6" height="104" rx="2" fill="#3A3A38"/>
-        <rect x="133" y="124" width="6" height="104" rx="2" fill="#3A3A38"/>
-        <rect x="57" y="138" width="50" height="13" rx="4" fill="#484846"/>
-        <rect x="80" y="151" width="6" height="7" rx="2" fill="#FFBF00" opacity=".9"/>
-        <path d="M83 143 Q98 128 112 112 Q121 103 129 94" stroke="#FFBF00" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
-        <circle cx="134" cy="89" r="20" fill="#282826"/><circle cx="134" cy="89" r="13" fill="#FFBF00" opacity=".8"/><circle cx="134" cy="89" r="5.5" fill="#1A1A18"/>
-        <rect x="35" y="128" width="24" height="17" rx="3" fill="#0A1520"/>
-        <rect x="38" y="131" width="18" height="4" rx="1" fill="#00FF88" opacity=".7"/>
-        <circle cx="134" cy="130" r="4.5" fill="#00FF88"/><circle cx="134" cy="130" r="8" fill="#00FF88" opacity=".18"/>
-        <!-- Printer B pink -->
-        <rect x="181" y="106" width="118" height="122" rx="9" fill="#232320"/>
-        <rect x="192" y="143" width="96" height="78" rx="4" fill="#1A1A18"/>
-        <ellipse cx="240" cy="217" rx="17" ry="4.5" fill="#FF5577" opacity=".9"/>
-        <polygon points="223,217 230,183 240,177 250,183 257,217" fill="#FF5577" opacity=".82"/>
-        <ellipse cx="240" cy="177" rx="13" ry="4" fill="#FF88AA"/>
-        <rect x="187" y="110" width="110" height="6" rx="3" fill="#333330"/>
-        <rect x="187" y="110" width="6" height="118" rx="2" fill="#3A3A38"/>
-        <rect x="291" y="110" width="6" height="118" rx="2" fill="#3A3A38"/>
-        <rect x="214" y="124" width="50" height="13" rx="4" fill="#484846"/>
-        <rect x="237" y="137" width="6" height="7" rx="2" fill="#FF5577" opacity=".9"/>
-        <path d="M240 129 Q255 112 272 96 Q282 86 290 76" stroke="#FF5577" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
-        <circle cx="295" cy="70" r="20" fill="#282826"/><circle cx="295" cy="70" r="13" fill="#FF5577" opacity=".8"/><circle cx="295" cy="70" r="5.5" fill="#1A1A18"/>
-        <rect x="192" y="114" width="24" height="17" rx="3" fill="#0A1520"/>
-        <rect x="195" y="117" width="18" height="4" rx="1" fill="#FF5577" opacity=".8"/>
-        <circle cx="293" cy="116" r="4.5" fill="#00FF88"/><circle cx="293" cy="116" r="8" fill="#00FF88" opacity=".18"/>
-        <!-- Printer C blue -->
-        <rect x="338" y="132" width="118" height="96" rx="9" fill="#232320"/>
-        <rect x="349" y="164" width="96" height="62" rx="4" fill="#1A1A18"/>
-        <ellipse cx="397" cy="222" rx="15" ry="4.5" fill="#4488FF" opacity=".9"/>
-        <rect x="382" y="193" width="30" height="29" rx="5" fill="#4488FF" opacity=".82"/>
-        <ellipse cx="397" cy="193" rx="15" ry="4.5" fill="#77AAFF"/>
-        <rect x="344" y="136" width="110" height="6" rx="3" fill="#333330"/>
-        <rect x="344" y="136" width="6" height="92" rx="2" fill="#3A3A38"/>
-        <rect x="448" y="136" width="6" height="92" rx="2" fill="#3A3A38"/>
-        <rect x="371" y="148" width="50" height="13" rx="4" fill="#484846"/>
-        <rect x="394" y="161" width="6" height="7" rx="2" fill="#4488FF" opacity=".9"/>
-        <path d="M397 153 Q411 138 426 122 Q435 112 442 100" stroke="#4488FF" stroke-width="1.8" fill="none" stroke-dasharray="3.5 2.5" opacity=".5"/>
-        <circle cx="447" cy="94" r="18" fill="#282826"/><circle cx="447" cy="94" r="11.5" fill="#4488FF" opacity=".8"/><circle cx="447" cy="94" r="5" fill="#1A1A18"/>
-        <rect x="349" y="140" width="22" height="16" rx="3" fill="#0A1520"/>
-        <rect x="352" y="143" width="16" height="3" rx="1" fill="#4488FF" opacity=".7"/>
-        <circle cx="446" cy="142" r="4.5" fill="#FFBF00" opacity=".9"/><circle cx="446" cy="142" r="8" fill="#FFBF00" opacity=".18"/>
-        <!-- Bench items -->
-        <ellipse cx="164" cy="227" rx="10" ry="3" fill="#FFBF00" opacity=".7"/>
-        <path d="M154 227 Q153 213 164 208 Q175 213 174 227Z" fill="#FFBF00" opacity=".65"/>
-        <circle cx="200" cy="222" r="8" fill="none" stroke="#888878" stroke-width="2.2"/>
-        <circle cx="200" cy="222" r="4" fill="#888878" opacity=".7"/>
-        <ellipse cx="326" cy="227" rx="8" ry="2.5" fill="#FF5577" opacity=".7"/>
-        <rect x="319" y="212" width="14" height="15" rx="3" fill="#FF5577" opacity=".65"/>
-        <circle cx="326" cy="209" r="5.5" fill="#FF5577" opacity=".7"/>
-        <rect x="16" y="14" width="88" height="22" rx="11" fill="#FFBF00" opacity=".95"/>
-        <circle cx="25" cy="25" r="2.8" fill="#1A1A18" opacity=".5"/>
-        <text x="57" y="29" font-family="Arial Black" font-size="8.5" font-weight="900" fill="#1A1A18" text-anchor="middle" letter-spacing="1.5">LIVE LAB</text>
-      </svg>
+        <div class="hero-right">
+      <canvas id="robot-canvas" style="display:block"></canvas>
     </div>
   </div>
 </section>
@@ -782,6 +711,163 @@ function filterProj(tag, btn) {
     section.style.display = visible ? '' : 'none'
   })
 }
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('robot-canvas');
+const container = canvas.parentElement;
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 500);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xF4F3EE);
+scene.fog = new THREE.Fog(0xF4F3EE, 30, 70);
+
+// Lighting — matches the reference example
+const hemi = new THREE.HemisphereLight(0xfff7f7, 0x494966, 3);
+scene.add(hemi);
+
+const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+dirLight.position.set(8, 16, 6);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.set(1024, 1024);
+dirLight.shadow.camera.left = -12;
+dirLight.shadow.camera.right = 12;
+dirLight.shadow.camera.top = 18;
+dirLight.shadow.camera.bottom = -4;
+dirLight.shadow.camera.far = 50;
+scene.add(dirLight);
+
+// Grid
+const grid = new THREE.GridHelper(20, 20, 0xc8c2b0, 0xddd8cc);
+scene.add(grid);
+
+// Shadow-receiving ground
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(30, 30),
+  new THREE.ShadowMaterial({ opacity: 0.12 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Materials — YM brand: #FFBF00 yellow, #1A1A18 dark
+const bodyMat  = new THREE.MeshStandardMaterial({ color: 0xFFBF00, roughness: 0.22, metalness: 0.18 });
+const jointMat = new THREE.MeshStandardMaterial({ color: 0x1A1A18, roughness: 0.3,  metalness: 0.8  });
+const toolMat  = new THREE.MeshStandardMaterial({ color: 0x2a2a28, roughness: 0.2,  metalness: 0.9  });
+const tipMat   = new THREE.MeshStandardMaterial({ color: 0xFFBF00, emissive: 0xFFBF00, emissiveIntensity: 0.6, roughness: 0.1, metalness: 0.3 });
+
+function box(w,h,d,m){ return new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m); }
+function cyl(rt,rb,h,s,m){ return new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,s),m); }
+function sph(r,m){ return new THREE.Mesh(new THREE.SphereGeometry(r,16,12),m); }
+
+// Build 6-DOF arm
+const root = new THREE.Group();
+scene.add(root);
+
+// Base plate
+const base = cyl(1.8,2.2,0.6,8,bodyMat); base.position.y=0.3; root.add(base);
+const baseRing = cyl(2.4,2.4,0.15,8,jointMat); baseRing.position.y=0.62; root.add(baseRing);
+
+// J1 – waist (Y)
+const j1 = new THREE.Group(); j1.position.y=0.62; root.add(j1);
+const column = cyl(0.88,1.1,2.8,8,bodyMat); column.position.y=1.4; j1.add(column);
+const topCap = cyl(1.25,0.88,0.4,8,jointMat); topCap.position.y=3.0; j1.add(topCap);
+const shoulder = box(1.8,1.0,2.6,jointMat); shoulder.position.y=3.5; j1.add(shoulder);
+
+// J2 – shoulder (Z)
+const j2 = new THREE.Group(); j2.position.y=3.5; j1.add(j2);
+const uArm = box(0.68,3.2,0.68,bodyMat); uArm.position.y=1.6; j2.add(uArm);
+const elbowHouse = box(1.4,0.8,1.8,jointMat); elbowHouse.position.y=3.4; j2.add(elbowHouse);
+
+// J3 – elbow (Z)
+const j3 = new THREE.Group(); j3.position.y=3.4; j2.add(j3);
+const fArm = box(0.58,2.6,0.58,bodyMat); fArm.position.y=1.3; j3.add(fArm);
+
+// J4 – forearm roll (X)
+const j4 = new THREE.Group(); j4.position.y=2.6; j3.add(j4);
+const wristBall = sph(0.52,jointMat); j4.add(wristBall);
+
+// J5 – wrist pitch (Z)
+const j5 = new THREE.Group(); j4.add(j5);
+const hand = box(0.44,1.1,0.44,bodyMat); hand.position.y=0.55; j5.add(hand);
+
+// J6 – tool roll (Y)
+const j6 = new THREE.Group(); j6.position.y=1.1; j5.add(j6);
+const toolBody = cyl(0.21,0.28,0.65,6,toolMat); toolBody.position.y=0.32; j6.add(toolBody);
+const tip = cyl(0.07,0.17,0.22,6,tipMat); tip.position.y=0.75; j6.add(tip);
+// small point light at tool tip for a glow effect
+const tipLight = new THREE.PointLight(0xFFBF00, 0.4, 3);
+tipLight.position.y=0.85; j6.add(tipLight);
+
+root.traverse(o => { if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; } });
+
+// Joint config
+const joints = [
+  { g:j1, ax:'y', min:-2.6, max:2.6  },
+  { g:j2, ax:'z', min:-0.2, max:1.1  },
+  { g:j3, ax:'z', min:-1.5, max:0.2  },
+  { g:j4, ax:'x', min:-3.1, max:3.1  },
+  { g:j5, ax:'z', min:-1.0, max:1.0  },
+  { g:j6, ax:'y', min:-3.1, max:3.1  },
+];
+
+// Safe start pose
+j2.rotation.z = 0.4;
+j3.rotation.z = -0.6;
+
+const cur  = joints.map(j => j.g.rotation[j.ax]);
+const from = [...cur];
+const to   = joints.map(j => j.min + Math.random() * (j.max - j.min));
+let tStart = performance.now(), tDur = 2500 + Math.random()*2500;
+
+function ease(t){ return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+function newTargets(){
+  from.forEach((_,i) => from[i] = cur[i]);
+  to.forEach((_,i)   => to[i]   = joints[i].min + Math.random()*(joints[i].max - joints[i].min));
+  tStart = performance.now();
+  tDur   = 2000 + Math.random()*3000;
+}
+
+function updateJoints(now){
+  const t = Math.min((now - tStart) / tDur, 1);
+  const e = ease(t);
+  joints.forEach((j,i) => {
+    cur[i] = from[i] + (to[i] - from[i]) * e;
+    j.g.rotation[j.ax] = cur[i];
+  });
+  if(t >= 1) newTargets();
+}
+
+function resize(){
+  const w = container.clientWidth, h = container.clientHeight;
+  if(!w || !h) return;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+
+function animate(now){
+  requestAnimationFrame(animate);
+  const timer = now * 0.00004;
+  camera.position.x = Math.cos(timer) * 18;
+  camera.position.y = 9;
+  camera.position.z = Math.sin(timer) * 18;
+  camera.lookAt(0, 5, 0);
+  updateJoints(now);
+  renderer.render(scene, camera);
+}
+
+resize();
+animate(0);
+new ResizeObserver(resize).observe(container);
 </script>
 </body>
 </html>
