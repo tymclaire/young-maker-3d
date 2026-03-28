@@ -29,6 +29,7 @@ h2{font-size:clamp(28px,3.6vw,48px);font-weight:900;letter-spacing:-1.5px;line-h
 .btn-y{background:var(--y);color:var(--ink);box-shadow:0 4px 16px rgba(255,191,0,.35)}.btn-y:hover{background:var(--yd)}
 .btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{box-shadow:0 6px 20px rgba(0,0,0,.2)}
 .btn-ol{background:transparent;color:var(--ink);border:2px solid var(--border)}.btn-ol:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+#hero .btn-ol{color:#fff;border-color:rgba(255,255,255,.4)}#hero .btn-ol:hover{background:#fff;color:var(--ink);border-color:#fff}
 
 /* REVEAL */
 .r{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
@@ -44,13 +45,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
 
 /* HERO */
-#hero{padding-top:66px;background:var(--gray);overflow:hidden;position:relative}
-#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--white));pointer-events:none;z-index:3}
+#hero{padding-top:66px;background:#06080f;overflow:hidden;position:relative}
+#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:3}
 .hero-grid{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center}
 .hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;max-width:620px}
-.hero-ey{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:18px;text-shadow:0 1px 12px rgba(253,252,248,.8)}
+.hero-ey{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--yd);display:flex;align-items:center;gap:10px;margin-bottom:18px}
 .eyeline{width:28px;height:2px;background:var(--y);border-radius:2px}
-h1{font-family:'League Spartan',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:10px;text-shadow:0 2px 24px rgba(253,252,248,.7)}
+h1{font-family:'League Spartan',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:10px}
+#hero h1{color:#fff;text-shadow:0 2px 32px rgba(0,0,0,.6)}
 h1 .yel{color:var(--y)}
 .hero-tagline{font-family:'League Spartan',sans-serif;font-size:clamp(14px,1.6vw,18px);font-weight:600;color:var(--mid);margin-bottom:20px}
 .hero-p{font-size:15px;line-height:1.72;color:var(--mid);max-width:440px;margin-bottom:32px;font-weight:300}
@@ -712,14 +714,14 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 500);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xF4F3EE);
-scene.fog = new THREE.Fog(0xF4F3EE, 30, 70);
+scene.background = new THREE.Color(0x06080f);
+scene.fog = new THREE.Fog(0x06080f, 18, 52);
 
-// Lighting — matches the reference example
-const hemi = new THREE.HemisphereLight(0xfff7f7, 0x494966, 3);
+// Lighting — futuristic dark theme
+const hemi = new THREE.HemisphereLight(0x224488, 0x000011, 1.2);
 scene.add(hemi);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.6);
 dirLight.position.set(8, 16, 6);
 dirLight.castShadow = true;
 dirLight.shadow.mapSize.set(1024, 1024);
@@ -730,8 +732,13 @@ dirLight.shadow.camera.bottom = -4;
 dirLight.shadow.camera.far = 50;
 scene.add(dirLight);
 
+// Blue accent light from the left for futuristic feel
+const accentLight = new THREE.PointLight(0x0077ff, 1.4, 22);
+accentLight.position.set(-10, 10, 4);
+scene.add(accentLight);
+
 // Grid
-const grid = new THREE.GridHelper(20, 20, 0xc8c2b0, 0xddd8cc);
+const grid = new THREE.GridHelper(20, 20, 0x0d2a4a, 0x081828);
 scene.add(grid);
 
 // Shadow-receiving ground
@@ -744,10 +751,10 @@ ground.receiveShadow = true;
 scene.add(ground);
 
 // Materials — YM brand: #FFBF00 yellow, #1A1A18 dark
-const bodyMat  = new THREE.MeshStandardMaterial({ color: 0xFFBF00, roughness: 0.22, metalness: 0.18 });
-const jointMat = new THREE.MeshStandardMaterial({ color: 0x1A1A18, roughness: 0.3,  metalness: 0.8  });
-const toolMat  = new THREE.MeshStandardMaterial({ color: 0x2a2a28, roughness: 0.2,  metalness: 0.9  });
-const tipMat   = new THREE.MeshStandardMaterial({ color: 0xFFBF00, emissive: 0xFFBF00, emissiveIntensity: 0.6, roughness: 0.1, metalness: 0.3 });
+const bodyMat  = new THREE.MeshStandardMaterial({ color: 0xFFBF00, roughness: 0.12, metalness: 0.65 });
+const jointMat = new THREE.MeshStandardMaterial({ color: 0x111122, roughness: 0.18, metalness: 0.95 });
+const toolMat  = new THREE.MeshStandardMaterial({ color: 0x0a0a18, roughness: 0.12, metalness: 0.98 });
+const tipMat   = new THREE.MeshStandardMaterial({ color: 0xFFBF00, emissive: 0xFFAA00, emissiveIntensity: 1.4, roughness: 0.05, metalness: 0.4 });
 
 function box(w,h,d,m){ return new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m); }
 function cyl(rt,rb,h,s,m){ return new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,s),m); }
@@ -789,7 +796,7 @@ const j6 = new THREE.Group(); j6.position.y=1.1; j5.add(j6);
 const toolBody = cyl(0.21,0.28,0.65,6,toolMat); toolBody.position.y=0.32; j6.add(toolBody);
 const tip = cyl(0.07,0.17,0.22,6,tipMat); tip.position.y=0.75; j6.add(tip);
 // small point light at tool tip for a glow effect
-const tipLight = new THREE.PointLight(0xFFBF00, 0.4, 3);
+const tipLight = new THREE.PointLight(0xFFAA00, 1.8, 6);
 tipLight.position.y=0.85; j6.add(tipLight);
 
 root.traverse(o => { if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; } });
