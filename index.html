@@ -408,16 +408,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
       <h2>16 projects. All under 4 hours.</h2>
       <p class="sub" style="margin-top:8px">Every project from MakerWorld MakerLab. New ones added monthly.</p>
     </div>
-    <a href="https://makerworld.com/en/makerlab" target="_blank" class="btn btn-ink">Browse MakerLab →</a>
   </div>
   <div class="proj-filters">
-    <button class="pf active" onclick="filterProj('all',this)">All Projects</button>
-    <button class="pf" onclick="filterProj('quick',this)">⚡ Quick (under 1hr)</button>
-    <button class="pf" onclick="filterProj('standard',this)">🕐 Standard (1–2hr)</button>
-    <button class="pf" onclick="filterProj('premium',this)">⭐ Premium (2–4hr)</button>
-    <button class="pf" onclick="filterProj('kids',this)">Kids favourites</button>
-    <button class="pf" onclick="filterProj('useful',this)">Practical &amp; useful</button>
-    <button class="pf" onclick="filterProj('art',this)">Art &amp; decor</button>
+    <button class="pf active" data-filter="all" onclick="filterProj('all',this)">All Projects</button>
+    <button class="pf" data-filter="quick" onclick="filterProj('quick',this)">⚡ Quick (under 1hr)</button>
+    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2hr)</button>
+    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (2–4hr)</button>
+    <button class="pf" data-filter="kids" onclick="filterProj('kids',this)">Kids favourites</button>
+    <button class="pf" data-filter="useful" onclick="filterProj('useful',this)">Practical &amp; useful</button>
+    <button class="pf" data-filter="art" onclick="filterProj('art',this)">Art &amp; decor</button>
   </div>
 
   <!-- Tier 1 -->
@@ -476,7 +475,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
         <div class="pc-body"><div class="pc-name">Relief Sculpture</div><div class="pc-tool">via Relief Sculpture Maker</div><p class="pc-desc">3D relief from any image — rises off the surface. Impressive wall art or desk display piece.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
       </div>
       <div class="pc" data-tags="all standard useful">
-        <div class="pc-vis" style="background:#F0F8FF"><div class="pc-vis-pattern"></div><div class="pc-icon">🗂️</div><div class="pc-label" style="color:#0066CC">Organizer</div></div>
+        <div class="pc-vis" style="background:#F0F8FF;padding:0"><div class="pc-vis-pattern"></div><img src="organizer.webp" alt="3D Printed Desk Organizer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"><div class="pc-label" style="color:#fff;z-index:1;text-shadow:0 1px 4px rgba(0,0,0,.6)">Organizer</div></div>
         <div class="pc-body"><div class="pc-name">Desk Organizer</div><div class="pc-tool">via Make My Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
       </div>
       <div class="pc" data-tags="all standard art">
@@ -519,7 +518,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
 
   <div style="text-align:center;margin-top:8px">
     <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month. Session Pass holders get early access.</p>
-    <a href="https://makerworld.com/en/makerlab" target="_blank" class="btn btn-ol">Explore all MakerLab tools →</a>
   </div>
 </section>
 
@@ -695,21 +693,36 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:0.08})
 document.querySelectorAll('.r').forEach(el=>io.observe(el))
 
-// Project filters
+// Project filters — multi-select
+let activeFilters = new Set();
+
 function filterProj(tag, btn) {
-  document.querySelectorAll('.pf').forEach(b=>b.classList.remove('active'))
-  btn.classList.add('active')
-  document.querySelectorAll('.pc').forEach(card=>{
-    const tags = card.dataset.tags || ''
-    card.classList.toggle('hidden', !tags.includes(tag))
-  })
-  // Show/hide tier headings if all cards hidden
-  ;['tier1','tier2','tier3'].forEach(id=>{
-    const section = document.getElementById(id)
-    if(!section) return
-    const visible = section.querySelectorAll('.pc:not(.hidden)').length
-    section.style.display = visible ? '' : 'none'
-  })
+  const allBtn = document.querySelector('.pf[data-filter="all"]');
+  if (tag === 'all') {
+    activeFilters.clear();
+    document.querySelectorAll('.pf').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  } else {
+    allBtn.classList.remove('active');
+    if (activeFilters.has(tag)) {
+      activeFilters.delete(tag);
+      btn.classList.remove('active');
+    } else {
+      activeFilters.add(tag);
+      btn.classList.add('active');
+    }
+    if (activeFilters.size === 0) allBtn.classList.add('active');
+  }
+  document.querySelectorAll('.pc').forEach(card => {
+    const tags = card.dataset.tags || '';
+    const show = activeFilters.size === 0 || [...activeFilters].some(f => tags.includes(f));
+    card.classList.toggle('hidden', !show);
+  });
+  ['tier1','tier2','tier3'].forEach(id => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    section.style.display = section.querySelectorAll('.pc:not(.hidden)').length ? '' : 'none';
+  });
 }
 </script>
 <script type="module">
