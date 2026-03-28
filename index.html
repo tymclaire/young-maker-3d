@@ -576,39 +576,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="stories" class="r">
-  <div style="text-align:center;margin-bottom:44px">
-    <div class="tag">Real makers, real stories</div>
-    <h2>Made at The Young Maker</h2>
-  </div>
-  <div class="tgrid">
-    <div class="tc">
-      <div class="tc-vis" style="background:#FFF3CC">👨‍👧</div>
-      <div class="tc-body">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-q">My daughter designed a jewellery box in her first session. Her dad signed up for the adult slot that same week. We're now a maker family.</p>
-        <div class="tc-a"><div class="tc-av" style="background:var(--y)">SN</div><div><div class="tc-n">Siti N.</div><div class="tc-r">Parent · Tampines</div></div></div>
-      </div>
-    </div>
-    <div class="tc">
-      <div class="tc-vis" style="background:#FFE8E8">🎂</div>
-      <div class="tc-body">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-q">Booked for my son's 9th birthday. 12 kids, 12 prints, zero drama. Every child was absorbed the whole 2 hours. Best birthday party idea ever.</p>
-        <div class="tc-a"><div class="tc-av" style="background:#FF5577">JL</div><div><div class="tc-n">Jenny L.</div><div class="tc-r">Parent · Bishan</div></div></div>
-      </div>
-    </div>
-    <div class="tc">
-      <div class="tc-vis" style="background:#E8F0FF">🚀</div>
-      <div class="tc-body">
-        <div class="tc-stars">★★★★★</div>
-        <p class="tc-q">One session, now a Shopee side business earning $4K/month. Never expected 3D printing to change my life like this.</p>
-        <div class="tc-a"><div class="tc-av" style="background:#4488FF">ML</div><div><div class="tc-n">Marcus L.</div><div class="tc-r">Startup founder, age 24</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CTA -->
 <section id="cta" class="r">
@@ -714,10 +681,10 @@ scene.background = new THREE.Color(0x06080f);
 scene.fog = new THREE.Fog(0x06080f, 18, 52);
 
 // Lighting — futuristic dark theme
-const hemi = new THREE.HemisphereLight(0x224488, 0x000011, 1.2);
+const hemi = new THREE.HemisphereLight(0x224488, 0x000011, 1.44);
 scene.add(hemi);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 1.6);
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.92);
 dirLight.position.set(8, 16, 6);
 dirLight.castShadow = true;
 dirLight.shadow.mapSize.set(1024, 1024);
@@ -729,7 +696,7 @@ dirLight.shadow.camera.far = 50;
 scene.add(dirLight);
 
 // Blue accent light from the left for futuristic feel
-const accentLight = new THREE.PointLight(0x0077ff, 1.4, 22);
+const accentLight = new THREE.PointLight(0x0077ff, 1.68, 22);
 accentLight.position.set(-10, 10, 4);
 scene.add(accentLight);
 
@@ -792,7 +759,7 @@ const j6 = new THREE.Group(); j6.position.y=1.1; j5.add(j6);
 const toolBody = cyl(0.21,0.28,0.65,6,toolMat); toolBody.position.y=0.32; j6.add(toolBody);
 const tip = cyl(0.07,0.17,0.22,6,tipMat); tip.position.y=0.75; j6.add(tip);
 // small point light at tool tip for a glow effect
-const tipLight = new THREE.PointLight(0xFFAA00, 1.8, 6);
+const tipLight = new THREE.PointLight(0xFFAA00, 2.16, 6);
 tipLight.position.y=0.85; j6.add(tipLight);
 
 root.traverse(o => { if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; } });
