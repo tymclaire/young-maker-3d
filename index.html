@@ -36,7 +36,7 @@ h2{font-size:clamp(28px,3.6vw,48px);font-weight:900;letter-spacing:-1.5px;line-h
 .r.on{opacity:1;transform:none}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(253,252,248,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--y)}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(253,252,248,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,26,24,.08)}
 .logo{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:900;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
 .lm{width:34px;height:34px;background:var(--y);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--ink)}
 .nav-links{display:flex;align-items:center;gap:28px}
@@ -45,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
 
 /* HERO */
-#hero{padding-top:66px;background:#06080f;overflow:hidden;position:relative}
+#hero{padding-top:66px;background:#0d1828;overflow:hidden;position:relative}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:3}
 .hero-grid{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center}
 .hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;max-width:620px}
@@ -64,10 +64,13 @@ h1 .yel{color:var(--y)}
 .hero-right canvas{width:100%!important;height:100%!important}
 
 /* SECTION */
-section{padding:88px 5%}
+section{padding:72px 5%}
+
+/* hide dot patterns site-wide */
+.pc-vis-pattern,.sc-vis-dots,.uc-vis-pattern{display:none}
 
 /* 3D PRINTING INFO */
-#printing{background:var(--white)}
+#printing{background:var(--bg)}
 .print-types{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-top:44px;margin-bottom:24px}
 .pt{padding:28px 24px;border-right:1.5px solid var(--border);transition:background .2s}
 .pt:last-child{border-right:none}
@@ -136,7 +139,7 @@ section{padding:88px 5%}
 .pc-time{font-size:10.5px;color:var(--light)}
 
 /* CREDITS */
-#credits{background:var(--gray)}
+#credits{background:var(--bg)}
 .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:44px}
 .cr-rules{display:flex;flex-direction:column;gap:14px}
 .cr-rule{display:flex;gap:14px;padding:16px 18px;background:var(--white);border-radius:12px;border:2px solid var(--border)}
@@ -216,7 +219,7 @@ section{padding:88px 5%}
 .cta-note{margin-top:18px;font-size:12px;color:rgba(26,26,24,.45)}
 
 /* FOOTER */
-footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px}
+footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px}
 .ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;text-decoration:none}
 .ft-logo-t{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:900;color:#fff}
 .ft-brand p{font-size:13px;line-height:1.68;max-width:220px;font-weight:300}
@@ -251,7 +254,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo"><div class="lm">YM</div>The Young Maker</a>
+  <a href="#" class="logo"><span>3D Printing Lab <span style="font-weight:400;opacity:.6;font-size:12px">by The Young Maker</span></span></a>
   <div class="nav-links">
     <a href="#printing">3D Printing</a>
     <a href="#services">Classes</a>
@@ -417,7 +420,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   <!-- Tier 1 -->
   <div class="tier-section" id="tier1">
     <div class="tier-head">
-      <span class="tier-badge" style="background:#FFF3CC;color:#CC9900">Tier 1 — 1 credit</span>
+      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 1 — 1 credit</span>
       <span class="tier-title">Quick wins — under 1 hour</span>
       <span class="tier-note">Perfect for first-timers &amp; kids</span>
     </div>
@@ -440,7 +443,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   <!-- Tier 2 -->
   <div class="tier-section" id="tier2">
     <div class="tier-head">
-      <span class="tier-badge" style="background:#FFE8CC;color:#994400">Tier 2 — 1–2 credits</span>
+      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 2 — 1–2 credits</span>
       <span class="tier-title">Core session projects — 1 to 2 hours</span>
       <span class="tier-note">Great for returning visitors</span>
     </div>
@@ -467,7 +470,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   <!-- Tier 3 -->
   <div class="tier-section" id="tier3">
     <div class="tier-head">
-      <span class="tier-badge" style="background:#EEE0FF;color:#6600CC">Tier 3 — 3–4 credits</span>
+      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 3 — 3–4 credits</span>
       <span class="tier-title">Premium projects — 3 to 4 hours</span>
       <span class="tier-note">Maximum wow factor · best with Maker Pack</span>
     </div>
@@ -551,30 +554,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
   </div>
 </section>
 
-<!-- USE CASES -->
-<section id="usecases" class="r">
-  <div class="tag">Use cases</div>
-  <h2>3D printing is a superpower.</h2>
-  <p class="sub">Our members launch businesses, impress teachers, and create things that didn't exist before.</p>
-  <div class="uc-grid">
-    <div class="uc">
-      <div class="uc-vis" style="background:#FFF3CC"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🚀</div><div class="uc-vis-label" style="color:#CC9900">Startup Founder</div></div>
-      <div class="uc-body"><div class="uc-ey">Startup Founder</div><div class="uc-title">Print your first product. Sell it online.</div><p class="uc-desc">Marcus learned 3D design here and now earns $4,200/month selling custom desk accessories on Shopee. No factory, no MOQ — just a great design and the skills to print it.</p><span class="uc-pill">Product startup</span></div>
-    </div>
-    <div class="uc">
-      <div class="uc-vis" style="background:#F0F8FF"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🎓</div><div class="uc-vis-label" style="color:#0066CC">Students</div></div>
-      <div class="uc-body"><div class="uc-ey">Students</div><div class="uc-title">Bring your school project to life</div><p class="uc-desc">Print a 3D cell model for biology, a scale building for design class, or a gear mechanism for D&amp;T. Stand out with something your teacher can actually hold.</p><span class="uc-pill">School projects</span></div>
-    </div>
-    <div class="uc">
-      <div class="uc-vis" style="background:#FFF0F8"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">🎁</div><div class="uc-vis-label" style="color:#CC0066">Gift Maker</div></div>
-      <div class="uc-body"><div class="uc-ey">Gift Maker</div><div class="uc-title">Make gifts that can't be bought anywhere</div><p class="uc-desc">Print a miniature of someone's home. Recreate their pet in 3D. The most personal gifts are made, not bought — and we'll help you make them.</p><span class="uc-pill">Unique gifts</span></div>
-    </div>
-    <div class="uc">
-      <div class="uc-vis" style="background:#F0FFF4"><div class="uc-vis-pattern"></div><div class="uc-vis-icon">⚙️</div><div class="uc-vis-label" style="color:#009944">Inventors</div></div>
-      <div class="uc-body"><div class="uc-ey">Inventors</div><div class="uc-title">Prototype before factory costs kick in</div><p class="uc-desc">Have a product idea? Print a working prototype in days. Test it, refine it, pitch it to investors — all for the cost of a few credits.</p><span class="uc-pill">Prototyping</span></div>
-    </div>
-  </div>
-</section>
 
 
 <!-- CTA -->
@@ -592,7 +571,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
 <!-- FOOTER -->
 <footer>
   <div class="ft-brand">
-    <a href="#" class="ft-logo"><div class="lm">YM</div><span class="ft-logo-t">The Young Maker</span></a>
+    <a href="#" class="ft-logo"><span class="ft-logo-t">3D Printing Lab <span style="font-weight:400;opacity:.6;font-size:13px">by The Young Maker</span></span></a>
     <p>Singapore's first 3D printing lab. We turn curious minds into confident makers — and sometimes, founders.</p>
   </div>
   <div class="ft-col">
@@ -623,6 +602,25 @@ footer{background:var(--ink);color:rgba(255,255,255,.38);padding:52px 5% 28px;di
 </footer>
 
 <script>
+// 3D mouse-tilt on cards
+document.querySelectorAll('.pc,.sc,.tier,.uc,.ev-perk').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-4px) scale(1.01)`;
+    card.style.transition='transform .05s ease,box-shadow .05s ease';
+    card.style.boxShadow=`${-x*12}px ${-y*12}px 28px rgba(255,191,0,.13)`;
+    card.style.zIndex='2';
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+    card.style.boxShadow='';
+    card.style.transition='transform .4s ease,box-shadow .4s ease';
+    card.style.zIndex='';
+  });
+});
+
 // Reveal on scroll
 const io = new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
@@ -677,11 +675,11 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 500);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x06080f);
-scene.fog = new THREE.Fog(0x06080f, 18, 52);
+scene.background = new THREE.Color(0x0d1828);
+scene.fog = new THREE.Fog(0x0d1828, 20, 56);
 
 // Lighting — futuristic dark theme
-const hemi = new THREE.HemisphereLight(0x224488, 0x000011, 1.44);
+const hemi = new THREE.HemisphereLight(0x3366aa, 0x050d18, 1.44);
 scene.add(hemi);
 
 const dirLight = new THREE.DirectionalLight(0xffffff, 1.92);
@@ -701,13 +699,13 @@ accentLight.position.set(-10, 10, 4);
 scene.add(accentLight);
 
 // Grid
-const grid = new THREE.GridHelper(20, 20, 0x0d2a4a, 0x081828);
+const grid = new THREE.GridHelper(20, 20, 0xffffff, 0x334466);
 scene.add(grid);
 
 // Shadow-receiving ground
 const ground = new THREE.Mesh(
   new THREE.PlaneGeometry(30, 30),
-  new THREE.ShadowMaterial({ opacity: 0.12 })
+  new THREE.ShadowMaterial({ opacity: 0.45 })
 );
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
