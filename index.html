@@ -71,7 +71,7 @@ section{padding:72px 5%}
 
 /* 3D PRINTING INFO */
 #printing{background:var(--bg)}
-.print-types{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-top:44px;margin-bottom:24px}
+.print-types{display:grid;grid-template-columns:1fr 1.6fr;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-top:44px;margin-bottom:0}
 .pt{padding:28px 24px;border-right:1.5px solid var(--border);transition:background .2s}
 .pt:last-child{border-right:none}
 .pt:hover{background:var(--yp)}
@@ -289,56 +289,44 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
   <p class="sub">Everything you need to know before your first session.</p>
   <div class="print-types">
     <div class="pt">
-      <div class="pt-icon" style="background:#FFF3CC">🖨️</div>
-      <div class="pt-name">FDM Printing</div>
-      <span class="pt-sub" style="background:#FFF3CC;color:#CC9900">Most common</span>
-      <p class="pt-desc">Fused filament — builds objects layer by layer from plastic filament. Great for functional parts, toys, keychains, and decorative objects.</p>
-    </div>
-    <div class="pt">
       <div class="pt-icon" style="background:#F0F8FF">🌈</div>
-      <div class="pt-name">Multi-colour</div>
-      <span class="pt-sub" style="background:#F0F8FF;color:#0066CC">AMS system</span>
-      <p class="pt-desc">Our Bambu Lab printers use AMS (Automatic Material System) to switch between up to 4 colours mid-print — producing vibrant, multi-tone creations automatically.</p>
+      <div class="pt-name">Multi-colour Printing</div>
+      <span class="pt-sub" style="background:#F0F8FF;color:#0066CC">Up to 4 colours</span>
+      <p class="pt-desc">Our printers can switch between up to 4 colours mid-print — producing vibrant, multi-tone creations automatically. No painting needed.</p>
     </div>
-    <div class="pt">
-      <div class="pt-icon" style="background:#F0FFF4">🧵</div>
-      <div class="pt-name">PLA Filament</div>
-      <span class="pt-sub" style="background:#F0FFF4;color:#009944">Beginner friendly</span>
-      <p class="pt-desc">PLA (Polylactic Acid) is our primary material — biodegradable, easy to print, available in 30+ colours including matte, silk, glow-in-the-dark, and metallic finishes.</p>
-    </div>
-  </div>
-  <div class="filament-rack">
-    <div class="fr-title">Our filament library — 30+ colours &amp; finishes</div>
-    <div class="filaments">
-      <div class="fil" style="background:#E8E4DC">
-        <div class="fil-swatch" style="background:#DEDAD0"></div>
-        <div class="fil-name" style="color:#5A5A52">Matte PLA</div>
-        <div class="fil-desc" style="color:#5A5A52">Smooth flat finish</div>
-      </div>
-      <div class="fil" style="background:#FFF8E0">
-        <div class="fil-swatch" style="background:#FFD700"></div>
-        <div class="fil-name" style="color:#7A5A00">Silk PLA</div>
-        <div class="fil-desc" style="color:#7A5A00">Shiny metallic look</div>
-      </div>
-      <div class="fil" style="background:#EEFFEE">
-        <div class="fil-swatch" style="background:#88FF88"></div>
-        <div class="fil-name" style="color:#005500">Glow in Dark</div>
-        <div class="fil-desc" style="color:#005500">Charges in light</div>
-      </div>
-      <div class="fil" style="background:#EEF6FF">
-        <div class="fil-swatch" style="background:#CCE8FF"></div>
-        <div class="fil-name" style="color:#004488">Transparent</div>
-        <div class="fil-desc" style="color:#004488">Crystal clear</div>
-      </div>
-      <div class="fil" style="background:#F5EDE0">
-        <div class="fil-swatch" style="background:#C4A882"></div>
-        <div class="fil-name" style="color:#5A3A10">Wood Fill</div>
-        <div class="fil-desc" style="color:#5A3A10">Real wood texture</div>
-      </div>
-      <div class="fil" style="background:#F0EEEC">
-        <div class="fil-swatch" style="background:#E8E4E0"></div>
-        <div class="fil-name" style="color:#555550">Marble</div>
-        <div class="fil-desc" style="color:#555550">Stone-like finish</div>
+    <div class="pt" style="border-right:none;padding:28px 24px">
+      <div class="fr-title" style="margin-bottom:16px">Our filament library — 30+ colours &amp; finishes</div>
+      <div class="filaments" style="grid-template-columns:repeat(3,1fr)">
+        <div class="fil" style="background:#E8E4DC">
+          <div class="fil-swatch" style="background:#DEDAD0"></div>
+          <div class="fil-name" style="color:#5A5A52">Matte PLA</div>
+          <div class="fil-desc" style="color:#5A5A52">Smooth flat finish</div>
+        </div>
+        <div class="fil" style="background:#FFF8E0">
+          <div class="fil-swatch" style="background:#FFD700"></div>
+          <div class="fil-name" style="color:#7A5A00">Silk PLA</div>
+          <div class="fil-desc" style="color:#7A5A00">Shiny metallic look</div>
+        </div>
+        <div class="fil" style="background:#EEFFEE">
+          <div class="fil-swatch" style="background:#88FF88"></div>
+          <div class="fil-name" style="color:#005500">Glow in Dark</div>
+          <div class="fil-desc" style="color:#005500">Charges in light</div>
+        </div>
+        <div class="fil" style="background:#EEF6FF">
+          <div class="fil-swatch" style="background:#CCE8FF"></div>
+          <div class="fil-name" style="color:#004488">Transparent</div>
+          <div class="fil-desc" style="color:#004488">Crystal clear</div>
+        </div>
+        <div class="fil" style="background:#F5EDE0">
+          <div class="fil-swatch" style="background:#C4A882"></div>
+          <div class="fil-name" style="color:#5A3A10">Wood Fill</div>
+          <div class="fil-desc" style="color:#5A3A10">Real wood texture</div>
+        </div>
+        <div class="fil" style="background:#F0EEEC">
+          <div class="fil-swatch" style="background:#E8E4E0"></div>
+          <div class="fil-name" style="color:#555550">Marble</div>
+          <div class="fil-desc" style="color:#555550">Stone-like finish</div>
+        </div>
       </div>
     </div>
   </div>
