@@ -45,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-cta{background:var(--y)!important;color:var(--ink)!important;padding:9px 22px;border-radius:8px}
 
 /* HERO */
-#hero{padding-top:66px;background:#0d1828;overflow:hidden;position:relative}
+#hero{padding-top:66px;background:#1a3250;overflow:hidden;position:relative}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:3}
 .hero-grid{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center}
 .hero-left{padding:64px 5% 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;max-width:620px}
@@ -655,14 +655,14 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 500);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x0d1828);
-scene.fog = new THREE.Fog(0x0d1828, 20, 56);
+scene.background = new THREE.Color(0x1a3250);
+scene.fog = new THREE.Fog(0x1a3250, 20, 56);
 
 // Lighting — futuristic dark theme
-const hemi = new THREE.HemisphereLight(0x3366aa, 0x050d18, 1.728);
+const hemi = new THREE.HemisphereLight(0x4488cc, 0x0d1e38, 2.2);
 scene.add(hemi);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 2.304);
+const dirLight = new THREE.DirectionalLight(0xffffff, 3.0);
 dirLight.position.set(8, 16, 6);
 dirLight.castShadow = true;
 dirLight.shadow.mapSize.set(1024, 1024);
@@ -674,7 +674,7 @@ dirLight.shadow.camera.far = 50;
 scene.add(dirLight);
 
 // Blue accent light from the left for futuristic feel
-const accentLight = new THREE.PointLight(0x0077ff, 2.016, 22);
+const accentLight = new THREE.PointLight(0x0077ff, 2.6, 22);
 accentLight.position.set(-10, 10, 4);
 scene.add(accentLight);
 
