@@ -89,7 +89,7 @@ section{padding:72px 5%}
 
 /* SERVICES */
 #services{background:var(--bg)}
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
+.services-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:44px}
 .sc{background:var(--white);border-radius:16px;border:2px solid var(--border);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
 .sc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 40px rgba(255,191,0,.12)}
 .sc.pop{border-color:var(--y)}
@@ -347,10 +347,10 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
 <!-- SERVICES -->
 <section id="services" class="r">
   <div class="tag">Our services</div>
-  <h2>Two ways to get creative.</h2>
+  <h2>Three ways to get creative.</h2>
   <p class="sub">Whether you're a first-timer or a regular maker, we have a format for you.</p>
   <div class="services-grid">
-    <!-- Class -->
+    <!-- 3D Printing Class -->
     <div class="sc">
       <div class="sc-vis" style="background:#FFF8E8">
         <div class="sc-vis-dots"></div>
@@ -360,37 +360,57 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
       <div class="sc-body">
         <div class="sc-icon">🖨️</div>
         <div class="sc-name">3D Printing Class</div>
-        <p class="sc-desc">A guided 2.5-hour workshop. Choose from our project library or design your own using Tinkercad, watch it print, and take it home.</p>
-        <div class="sc-price">$65–80</div>
-        <div class="sc-note">per person · all materials &amp; filament included</div>
+        <p class="sc-desc">A guided hands-on class where you design, print, and take home your creation. Print different projects every session.</p>
+        <div class="sc-price">$80</div>
+        <div class="sc-note">per class · 4 sessions × 2 hours · all materials included</div>
         <ul class="sc-list">
-          <li>Choose from MakerWorld project library or design your own</li>
+          <li>Print different projects every session</li>
           <li>Multi-colour printing available</li>
-          <li>Ages 6 and up · school groups $45–60/pax</li>
-          <li>Weekday &amp; weekend slots available</li>
+          <li>Suitable for kids exploring 3D printing, or Parent-Child bonding</li>
+          <li>Holiday Camp available in Mar, Jun, Sep &amp; Dec (3 hours)</li>
         </ul>
         <a href="#cta" class="sc-btn scb-ol">Book a class</a>
       </div>
     </div>
-    <!-- Pass -->
+    <!-- 3D Modelling Class -->
+    <div class="sc">
+      <div class="sc-vis" style="background:#F0F8FF">
+        <div class="sc-vis-dots"></div>
+        <div style="font-size:60px;z-index:1">🖥️</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0066CC;margin-top:9px;z-index:1;opacity:.85">3D MODELLING CLASS</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-icon">🖥️</div>
+        <div class="sc-name">3D Modelling Class</div>
+        <p class="sc-desc">Learn to design in 3D from scratch using professional tools. Build models, prototypes, and creative projects you can print on the spot.</p>
+        <div class="sc-price">$90</div>
+        <div class="sc-note">per class · 4 sessions × 2 hours · all materials included</div>
+        <ul class="sc-list">
+          <li>Suitable for all ages, including adults</li>
+          <li>Product prototyping &amp; project building</li>
+          <li>No prior experience needed</li>
+        </ul>
+        <a href="#cta" class="sc-btn scb-ol">Book a class</a>
+      </div>
+    </div>
+    <!-- Season Pass -->
     <div class="sc pop">
-      <div class="sc-vis" style="background:#F0F8FF;position:relative">
+      <div class="sc-vis" style="background:#FFFBF0;position:relative">
         <div class="sc-vis-dots"></div>
         <div class="sc-pop-badge">Best value</div>
         <div style="font-size:60px;z-index:1">🎟️</div>
-        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0066CC;margin-top:9px;z-index:1;opacity:.85">SESSION PASS</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#CC9900;margin-top:9px;z-index:1;opacity:.85">SEASON PASS</div>
       </div>
       <div class="sc-body">
         <div class="sc-icon">🎟️</div>
-        <div class="sc-name">Session Pass</div>
-        <p class="sc-desc">Pre-paid print credits. Pick from our MakerWorld library, use credits to print, and come back whenever. Credits never expire.</p>
-        <div class="sc-price">From $48</div>
-        <div class="sc-note">1 credit = 1 hour · max 4 credits per session</div>
+        <div class="sc-name">Season Pass</div>
+        <p class="sc-desc">Pre-paid print credits. Pick from our project library and come back whenever you like.</p>
+        <div class="sc-price">$30</div>
+        <div class="sc-note">per pass · 1 pass = up to 2 hours of print time</div>
         <ul class="sc-list">
-          <li>Choose any project from the MakerWorld library</li>
-          <li>Priority booking over walk-ins</li>
-          <li>4-pack $48 · 8-pack $88 · 16-pack $160</li>
-          <li>Credits never expire</li>
+          <li>Choose any project from our Standard collection</li>
+          <li>Pick from The Young Maker project library</li>
+          <li>All filament included</li>
         </ul>
         <a href="#credits" class="sc-btn scb-y">See credit packs →</a>
       </div>
@@ -404,88 +424,69 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <div>
       <div class="tag">What you can print</div>
       <h2>Explore a collection of exciting 3D printing projects.</h2>
-      <p class="sub" style="margin-top:8px">Every project from MakerWorld MakerLab. New ones added monthly.</p>
+      <p class="sub" style="margin-top:8px">Every project from The Young Maker 3D Printing Lab. New ones added monthly.</p>
     </div>
   </div>
   <div class="proj-filters">
     <button class="pf active" data-filter="all" onclick="filterProj('all',this)">All Projects</button>
-    <button class="pf" data-filter="quick" onclick="filterProj('quick',this)">⚡ Quick (under 1hr)</button>
-    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2hr)</button>
-    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (2–4hr)</button>
-    <button class="pf" data-filter="kids" onclick="filterProj('kids',this)">Kids favourites</button>
-    <button class="pf" data-filter="useful" onclick="filterProj('useful',this)">Practical &amp; useful</button>
-    <button class="pf" data-filter="art" onclick="filterProj('art',this)">Art &amp; decor</button>
+    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2 hr) — Season Pass</button>
+    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (3–4 hr) — Classes only</button>
   </div>
 
-  <!-- Tier 1 -->
-  <div class="tier-section" id="tier1">
+  <!-- Standard Tier -->
+  <div class="tier-section" id="tier-standard">
     <div class="tier-head">
-      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 1 — 1 credit</span>
-      <span class="tier-title">Quick wins — under 1 hour</span>
-      <span class="tier-note">Perfect for first-timers &amp; kids</span>
+      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Standard — 1–2 hr</span>
+      <span class="tier-title">Standard projects</span>
+      <span class="tier-note">Season Pass eligible</span>
     </div>
     <div class="proj-grid">
-      <div class="pc" data-tags="all quick kids">
+      <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF3CC;padding:0;overflow:hidden"><div class="pc-badge">Popular</div><img src="keychain.jpg" alt="3D Printed Keychain" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Image to Keychain</div><div class="pc-tool">via Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div></div>
       </div>
-      <div class="pc" data-tags="all quick useful">
+      <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="sign.webp" alt="3D Printed Sign" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Sign</div><div class="pc-tool">via Make My Sign</div><p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print it in minutes.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Make My Sign</div><p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print it in minutes.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div></div>
       </div>
-      <div class="pc" data-tags="all quick kids">
+      <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0F8;padding:0;overflow:hidden"><div class="pc-badge">Kids fave</div><img src="clicker.jpg" alt="3D Printed Fidget Clicker" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Fidget Clicker</div><div class="pc-tool">via Community models</div><p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Fidget Clicker</div><p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div></div>
       </div>
-    </div>
-  </div>
-
-  <!-- Tier 2 -->
-  <div class="tier-section" id="tier2">
-    <div class="tier-head">
-      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 2 — 1–2 credits</span>
-      <span class="tier-title">Core session projects — 1 to 2 hours</span>
-      <span class="tier-note">Great for returning visitors</span>
-    </div>
-    <div class="proj-grid">
-      <div class="pc" data-tags="all standard art">
-        <div class="pc-vis" style="background:#FFF8F0;padding:0;overflow:hidden"><img src="relief.webp" alt="3D Relief Sculpture" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Relief Sculpture</div><div class="pc-tool">via Relief Sculpture Maker</div><p class="pc-desc">3D relief from any image — rises off the surface. Impressive wall art or desk display piece.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
-      </div>
-      <div class="pc" data-tags="all standard useful">
+      <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="organizer.webp" alt="3D Printed Desk Organizer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Desk Organizer</div><div class="pc-tool">via Make My Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
       </div>
-      <div class="pc" data-tags="all standard art">
-        <div class="pc-vis" style="background:#FFF3CC;padding:0;overflow:hidden"><img src="vase.webp" alt="3D Printed Vase" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Vase</div><div class="pc-tool">via Make My Vase</div><p class="pc-desc">Design a custom vase shape by clicking options. Spiral vase mode prints fast and looks beautiful.</p><div class="pc-meta"><span class="pc-credits">1–2 credits</span><span class="pc-time">1–2 hr</span></div></div>
-      </div>
-      <div class="pc" data-tags="all standard kids useful">
+      <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0E8;padding:0;overflow:hidden"><img src="crocs.webp" alt="3D Printed Crocs Charm" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Crocs Charm</div><div class="pc-tool">via Community models</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Crocs Charm</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div></div>
+      </div>
+      <div class="pc" data-tags="all standard">
+        <div class="pc-vis" style="background:#F8F8FF;padding:0;overflow:hidden"><div class="pc-badge">Best for gifts</div><img src="lithophane.webp" alt="3D Printed Lithophane" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
+        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Tier 3 -->
-  <div class="tier-section" id="tier3">
+  <!-- Premium Tier -->
+  <div class="tier-section" id="tier-premium">
     <div class="tier-head">
-      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Tier 3 — 3–4 credits</span>
-      <span class="tier-title">Premium projects — 3 to 4 hours</span>
-      <span class="tier-note">Maximum wow factor · best with Maker Pack</span>
+      <span class="tier-badge" style="background:var(--y);color:var(--ink)">Premium — 3–4 hr</span>
+      <span class="tier-title">Premium projects</span>
+      <span class="tier-note">Available in Classes only</span>
     </div>
     <div class="proj-grid">
-      <div class="pc" data-tags="all premium art">
+      <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F8F0FF;padding:0;overflow:hidden"><div class="pc-badge">Wow factor</div><img src="statue.jpg" alt="3D Printed Statue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Statue</div><div class="pc-tool">via Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div></div>
       </div>
-      <div class="pc" data-tags="all premium kids useful">
+      <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F0F8F0;padding:0;overflow:hidden"><img src="mouse.webp" alt="3D Printed Mechanical Mouse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><div class="pc-tool">via Community models</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div></div>
       </div>
-      <div class="pc" data-tags="all premium art">
-        <div class="pc-vis" style="background:#F8F8FF;padding:0;overflow:hidden"><div class="pc-badge">Best for gifts</div><img src="lithophane.webp" alt="3D Printed Lithophane" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><div class="pc-tool">via Make My Lithophane</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">2.5–3.5 hr</span></div></div>
+      <div class="pc" data-tags="all premium">
+        <div class="pc-vis" style="background:#FFFBF0;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><div style="font-size:56px;z-index:1">💡</div></div>
+        <div class="pc-body"><div class="pc-name">Lamp</div><p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div></div>
       </div>
     </div>
   </div>
@@ -497,34 +498,25 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
 
 <!-- CREDITS -->
 <section id="credits" class="r">
-  <div class="tag">Session Pass pricing</div>
+  <div class="tag">Season Pass pricing</div>
   <h2>Simple credits.</h2>
-  <p class="sub">1 credit = 1 hour of print time. Credits never expire.</p>
+  <p class="sub">1 credit = up to 2 hours of print time.</p>
   <div class="credits-grid">
     <div class="cr-rules">
-      <div class="cr-rule"><span class="cr-icon">⏱️</span><div><div class="cr-t">1 credit = 1 hour of print time</div><p class="cr-d">Max 4 credits (4 hours) per session. Mix and match projects as long as total credits ≤ 4.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Pick from our project library</div><p class="cr-d">Session Pass holders choose from our curated MakerWorld library. Each project shows its credit cost upfront.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">⏱️</span><div><div class="cr-t">1 credit = up to 2 hours of print time</div><p class="cr-d">Each session is up to 2 hours. Choose one project from our Standard collection per session.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Pick from our project library</div><p class="cr-d">Season Pass holders choose from our curated Standard project library at The Young Maker. Each project shows its credit cost upfront.</p></div></div>
       <div class="cr-rule"><span class="cr-icon">🎨</span><div><div class="cr-t">All filament included</div><p class="cr-d">All filament, build plate prep, and printer maintenance are included in your credits. You only pay for time.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">♾️</span><div><div class="cr-t">Credits never expire</div><p class="cr-d">Use them at your own pace. Bigger packs give you a lower cost per credit and priority booking.</p></div></div>
     </div>
     <div class="cr-tiers">
       <div class="tier">
-        <div class="tier-row"><span class="tier-name">Starter Pack</span><span class="tier-price">$48 <span>/ pack</span></span></div>
-        <div class="tier-chips"><span class="chip">4 credits</span><span style="font-size:12px;color:var(--light)">= $12 per credit</span></div>
-        <ul class="tier-perks"><li>1 full session (up to 4 hrs printing)</li><li>Access to full project library</li><li>Great for trying before committing</li></ul>
+        <div class="tier-row"><span class="tier-name">Starter Pack</span><span class="tier-price">$30 <span>/ pack</span></span></div>
+        <div class="tier-chips"><span class="chip">1 credit</span><span style="font-size:12px;color:var(--light)">1 session · up to 2 hrs</span></div>
+        <ul class="tier-perks"><li>1 session (up to 2 hrs printing)</li><li>Access to Standard project library</li><li>Great for first-timers</li></ul>
       </div>
       <div class="tier pop">
-        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Regular Pack</span><span class="pop-badge">Best value</span></div><span class="tier-price">$88 <span>/ pack</span></span></div>
-        <div class="tier-chips"><span class="chip">8 credits</span><span style="font-size:12px;color:var(--light)">= $11 per credit · save 8%</span></div>
-        <ul class="tier-perks"><li>2 full sessions (up to 4 hrs each)</li><li>Priority booking over walk-ins</li><li>Early access to new library projects</li></ul>
-      </div>
-      <div class="tier">
-        <div class="tier-row"><span class="tier-name">Maker Pack</span><span class="tier-price">$160 <span>/ pack</span></span></div>
-        <div class="tier-chips"><span class="chip">16 credits</span><span style="font-size:12px;color:var(--light)">= $10 per credit · save 17%</span></div>
-        <ul class="tier-perks"><li>4 full sessions — best per-credit rate</li><li>Priority booking + dedicated time slot</li><li>1 guest pass included</li></ul>
-      </div>
-      <div class="cr-example">
-        <p><strong style="font-family:'League Spartan',sans-serif;color:var(--ink)">Example:</strong> Fidget Clicker = 1 credit (~45 min). LED Lightbox = 3–4 credits (~2.5–4 hr). Keychain = 1 credit (~30 min). Mix projects in one session as long as total ≤ 4 credits.</p>
+        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Maker Pack</span><span class="pop-badge">Best value</span></div><span class="tier-price">$125 <span>/ pack</span></span></div>
+        <div class="tier-chips"><span class="chip">5 credits</span><span style="font-size:12px;color:var(--light)">5 sessions · up to 10 hrs total</span></div>
+        <ul class="tier-perks"><li>5 sessions (up to 2 hrs each)</li><li>Access to Standard project library</li><li>Priority booking</li></ul>
       </div>
     </div>
   </div>
@@ -545,10 +537,9 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <div class="ev-cta">
       <div class="ev-cta-icon">🎉</div>
       <h3>Ready to book your event?</h3>
-      <p>Birthday parties from <strong>$45/child</strong> · Corporate workshops from <strong>$80/person</strong> · School groups from <strong>$45/student</strong>.<br>Minimum 8 pax. All ages welcome.</p>
+      <p>Whether it's a birthday party, corporate workshop, or school excursion — we host it all. 4–10 pax. All ages welcome.</p>
       <div class="ev-cta-btn">
         <a href="mailto:events@youngmaker.sg" class="btn btn-ink" style="font-size:15px;padding:15px 28px;width:100%;justify-content:center">Contact us to book your event →</a>
-        <p class="ev-note">WhatsApp +65 xxxx xxxx · We reply within the hour</p>
       </div>
     </div>
   </div>
@@ -584,7 +575,8 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
   <div class="ft-col">
     <h4>Services</h4>
     <a href="#services">3D Printing Classes</a>
-    <a href="#services">Session Pass</a>
+    <a href="#services">3D Modelling Classes</a>
+    <a href="#services">Season Pass</a>
     <a href="#events">Birthday Parties</a>
     <a href="#events">Corporate Workshops</a>
   </div>
@@ -654,7 +646,7 @@ function filterProj(tag, btn) {
     const show = activeFilters.size === 0 || [...activeFilters].some(f => tags.includes(f));
     card.classList.toggle('hidden', !show);
   });
-  ['tier1','tier2','tier3'].forEach(id => {
+  ['tier-standard','tier-premium'].forEach(id => {
     const section = document.getElementById(id);
     if (!section) return;
     section.style.display = section.querySelectorAll('.pc:not(.hidden)').length ? '' : 'none';
@@ -679,10 +671,10 @@ scene.background = new THREE.Color(0x0d1828);
 scene.fog = new THREE.Fog(0x0d1828, 20, 56);
 
 // Lighting — futuristic dark theme
-const hemi = new THREE.HemisphereLight(0x3366aa, 0x050d18, 1.44);
+const hemi = new THREE.HemisphereLight(0x3366aa, 0x050d18, 1.728);
 scene.add(hemi);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 1.92);
+const dirLight = new THREE.DirectionalLight(0xffffff, 2.304);
 dirLight.position.set(8, 16, 6);
 dirLight.castShadow = true;
 dirLight.shadow.mapSize.set(1024, 1024);
@@ -694,7 +686,7 @@ dirLight.shadow.camera.far = 50;
 scene.add(dirLight);
 
 // Blue accent light from the left for futuristic feel
-const accentLight = new THREE.PointLight(0x0077ff, 1.68, 22);
+const accentLight = new THREE.PointLight(0x0077ff, 2.016, 22);
 accentLight.position.set(-10, 10, 4);
 scene.add(accentLight);
 
@@ -757,7 +749,7 @@ const j6 = new THREE.Group(); j6.position.y=1.1; j5.add(j6);
 const toolBody = cyl(0.21,0.28,0.65,6,toolMat); toolBody.position.y=0.32; j6.add(toolBody);
 const tip = cyl(0.07,0.17,0.22,6,tipMat); tip.position.y=0.75; j6.add(tip);
 // small point light at tool tip for a glow effect
-const tipLight = new THREE.PointLight(0xFFAA00, 2.16, 6);
+const tipLight = new THREE.PointLight(0xFFAA00, 2.592, 6);
 tipLight.position.y=0.85; j6.add(tipLight);
 
 root.traverse(o => { if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; } });
