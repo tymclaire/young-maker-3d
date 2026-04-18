@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Library — The Young Maker 3D Printing Lab</title>
+<!-- Prevent search engines from indexing this page -->
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --y:#FFBF00;--yd:#CC9900;--yl:#FFF3CC;--yp:#FFFBF0;
+  --ink:#1A1A18;--mid:#5A5A52;--light:#9A9A90;
+  --bg:#FDFCF8;--white:#fff;--gray:#F4F3EE;
+  --border:rgba(26,26,24,.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'League Spartan',sans-serif}
+h2{font-size:clamp(28px,3.6vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.06;margin-bottom:14px}
+
+/* TAG */
+.tag{display:inline-flex;align-items:center;gap:7px;font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yd);background:var(--yl);padding:5px 14px;border-radius:100px;margin-bottom:14px}
+.tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--y);flex-shrink:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(253,252,248,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,26,24,.08)}
+.logo{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:900;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.nav-badge{background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
+
+/* HERO STRIP */
+.lib-hero{padding:100px 5% 52px;background:var(--bg);border-bottom:1.5px solid var(--border)}
+.sub{font-size:15px;color:var(--mid);line-height:1.72;font-weight:300;max-width:500px}
+
+/* SEARCH + FILTER BAR */
+.filter-bar{padding:28px 5%;background:var(--white);border-bottom:1.5px solid var(--border);position:sticky;top:66px;z-index:99;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search-wrap{position:relative;flex:1;min-width:200px;max-width:320px}
+.search-wrap input{width:100%;padding:10px 16px 10px 38px;border:1.5px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;background:var(--bg);color:var(--ink);outline:none;transition:border-color .15s}
+.search-wrap input:focus{border-color:var(--y)}
+.search-wrap::before{content:'🔍';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none}
+.pf{font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border-radius:100px;border:2px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all .15s;white-space:nowrap}
+.pf:hover,.pf.active{background:var(--y);border-color:var(--y);color:var(--ink)}
+.filter-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
+.result-count{font-size:12px;color:var(--light);margin-left:auto;white-space:nowrap}
+
+/* PROJECTS GRID */
+main{padding:44px 5% 80px}
+.tier-section{margin-bottom:48px}
+.tier-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.tier-badge{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px}
+.tier-title{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800}
+.tier-note{font-size:12px;color:var(--light);margin-left:auto}
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* PROJECT CARD */
+.pc{background:var(--white);border-radius:14px;overflow:hidden;border:2px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
+.pc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 10px 30px rgba(255,191,0,.12)}
+.pc.hidden{display:none}
+.pc-vis{width:100%;height:148px;position:relative;flex-shrink:0;overflow:hidden;background:var(--gray)}
+.pc-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pc-vis-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px}
+.pc-badge{position:absolute;top:8px;right:8px;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px;z-index:1}
+.pc-source{position:absolute;top:8px;left:8px;font-family:'League Spartan',sans-serif;font-size:8px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:100px;z-index:1}
+.pc-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
+.pc-name{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:800;margin-bottom:4px}
+.pc-desc{font-size:12px;color:var(--mid);line-height:1.58;font-weight:300;margin-bottom:12px;flex:1}
+.pc-meta{display:flex;align-items:center;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.pc-credits{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;color:var(--yd);background:var(--yl);padding:3px 9px;border-radius:100px}
+.pc-time{font-size:10px;color:var(--light)}
+.pc-btn{display:block;width:100%;padding:10px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;text-align:center;text-decoration:none;background:var(--ink);color:#fff;transition:background .15s;margin-top:auto}
+.pc-btn:hover{background:#333}
+.pc-btn.disabled{background:var(--gray);color:var(--light);cursor:not-allowed;pointer-events:none}
+
+/* EMPTY STATE */
+.empty{text-align:center;padding:60px 20px;color:var(--light)}
+.empty-icon{font-size:48px;margin-bottom:16px}
+.empty p{font-size:14px}
+
+/* FOOTER */
+footer{background:#1a3250;color:rgba(255,255,255,.4);padding:32px 5%;text-align:center;font-size:13px}
+footer span{color:var(--y);font-family:'League Spartan',sans-serif;font-weight:700}
+
+@media(max-width:860px){
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .filter-bar{top:66px}
+}
+@media(max-width:520px){
+  .proj-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <span>3D Printing Lab <span style="font-weight:400;opacity:.6;font-size:12px">by The Young Maker</span></span>
+  </a>
+  <span class="nav-badge">🔒 Student Library</span>
+</nav>
+
+<!-- HERO STRIP -->
+<div class="lib-hero">
+  <div class="tag">Project Library</div>
+  <h2>Choose your next print.</h2>
+  <p class="sub">Browse our curated collection. Standard projects are available with a Season Pass. Premium projects are available in classes only.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search projects…" oninput="applyFilters()">
+  </div>
+  <div class="filter-divider"></div>
+  <button class="pf active" data-tier="all" onclick="setTier('all',this)">All</button>
+  <button class="pf" data-tier="standard" onclick="setTier('standard',this)">🕐 Standard — Season Pass</button>
+  <button class="pf" data-tier="premium" onclick="setTier('premium',this)">⭐ Premium — Classes only</button>
+  <div class="filter-divider"></div>
+  <button class="pf" data-cat="all-cat" onclick="setCat('all-cat',this)">All categories</button>
+  <button class="pf" data-cat="fun" onclick="setCat('fun',this)">Fun &amp; Games</button>
+  <button class="pf" data-cat="useful" onclick="setCat('useful',this)">Useful</button>
+  <button class="pf" data-cat="art" onclick="setCat('art',this)">Art &amp; Decor</button>
+  <span class="result-count" id="result-count"></span>
+</div>
+
+<!-- PROJECT CATALOGUE -->
+<main>
+
+  <!-- STANDARD TIER -->
+  <div class="tier-section" id="section-standard">
+    <div class="tier-head">
+      <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Standard — 1–2 hr</span>
+      <span class="tier-title">Standard projects</span>
+      <span class="tier-note">Season Pass eligible · 1–2 credits per project</span>
+    </div>
+    <div class="proj-grid" id="grid-standard">
+
+      <div class="pc" data-tier="standard" data-cat="fun" data-name="image to keychain">
+        <div class="pc-vis"><img src="keychain.jpg" alt="Keychain"><div class="pc-badge">Popular</div><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Image to Keychain</div>
+          <p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour.</p>
+          <div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div>
+          <a href="https://makerworld.com/en/models/56326" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="standard" data-cat="useful" data-name="make my sign">
+        <div class="pc-vis"><img src="sign.webp" alt="Sign"><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Make My Sign</div>
+          <p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print in minutes.</p>
+          <div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="standard" data-cat="fun" data-name="fidget clicker">
+        <div class="pc-vis"><img src="clicker.jpg" alt="Fidget Clicker"><div class="pc-badge">Kids fave</div><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Fidget Clicker</div>
+          <p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p>
+          <div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="standard" data-cat="useful" data-name="desk organizer">
+        <div class="pc-vis"><img src="organizer.webp" alt="Desk Organizer"><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Desk Organizer</div>
+          <p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p>
+          <div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="standard" data-cat="fun" data-name="crocs charm">
+        <div class="pc-vis"><img src="crocs.webp" alt="Crocs Charm"><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Crocs Charm</div>
+          <p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs.</p>
+          <div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="standard" data-cat="art" data-name="lithophane photo">
+        <div class="pc-vis"><img src="lithophane.webp" alt="Lithophane"><div class="pc-badge">Best for gifts</div><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Lithophane Photo</div>
+          <p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p>
+          <div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PREMIUM TIER -->
+  <div class="tier-section" id="section-premium">
+    <div class="tier-head">
+      <span class="tier-badge" style="background:var(--y);color:var(--ink)">Premium — 3–4 hr</span>
+      <span class="tier-title">Premium projects</span>
+      <span class="tier-note">Available in Classes only · 3–4 credits per project</span>
+    </div>
+    <div class="proj-grid" id="grid-premium">
+
+      <div class="pc" data-tier="premium" data-cat="art" data-name="make my statue">
+        <div class="pc-vis"><img src="statue.jpg" alt="Statue"><div class="pc-badge">Wow factor</div><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Make My Statue</div>
+          <p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p>
+          <div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="premium" data-cat="useful" data-name="mechanical mouse">
+        <div class="pc-vis"><img src="mouse.webp" alt="Mechanical Mouse"><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Mechanical Mouse</div>
+          <p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel.</p>
+          <div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+      <div class="pc" data-tier="premium" data-cat="art" data-name="lamp">
+        <div class="pc-vis" style="background:#FFFBF0"><div class="pc-vis-icon">💡</div><span class="pc-source" style="background:#FFF3CC;color:#CC9900">MakerWorld</span></div>
+        <div class="pc-body">
+          <div class="pc-name">Lamp</div>
+          <p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p>
+          <div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div>
+          <a href="https://makerworld.com" target="_blank" class="pc-btn">View &amp; Download →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty" id="empty-state" style="display:none">
+    <div class="empty-icon">🔍</div>
+    <p>No projects match your search. Try a different keyword or filter.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 <span>The Young Maker</span> · Project Library · For student use only · Not for public distribution</p>
+</footer>
+
+<script>
+let activeTier = 'all';
+let activeCat  = 'all-cat';
+
+function setTier(tier, btn) {
+  activeTier = tier;
+  document.querySelectorAll('[data-tier]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function setCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  let visible = 0;
+
+  document.querySelectorAll('.pc').forEach(card => {
+    const tierMatch = activeTier === 'all' || card.dataset.tier === activeTier;
+    const catMatch  = activeCat  === 'all-cat' || card.dataset.cat === activeCat;
+    const nameMatch = !query || card.dataset.name.includes(query) ||
+                      card.querySelector('.pc-desc').textContent.toLowerCase().includes(query);
+
+    const show = tierMatch && catMatch && nameMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  // Show/hide tier sections
+  ['standard','premium'].forEach(tier => {
+    const section = document.getElementById('section-' + tier);
+    if (!section) return;
+    const hasVisible = section.querySelectorAll('.pc:not(.hidden)').length > 0;
+    section.style.display = hasVisible ? '' : 'none';
+  });
+
+  // Result count
+  document.getElementById('result-count').textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+
+  // Empty state
+  document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// 3D tilt on cards
+document.querySelectorAll('.pc').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px) scale(1.01)`;
+    card.style.transition = 'transform .05s ease';
+    card.style.zIndex = '2';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform .4s ease';
+    card.style.zIndex = '';
+  });
+});
+
+// Init count
+applyFilters();
+</script>
+</body>
+</html>
