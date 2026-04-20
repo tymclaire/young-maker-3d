@@ -137,6 +137,11 @@ section{padding:72px 5%}
 .pc-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
 .pc-credits{font-family:'League Spartan',sans-serif;font-size:10.5px;font-weight:800;color:var(--yd);background:var(--yl);padding:3px 9px;border-radius:100px}
 .pc-time{font-size:10.5px;color:var(--light)}
+.pc-actions{display:flex;gap:7px;margin-top:10px}
+.pc-btn-class{flex:1;padding:8px 4px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:10.5px;font-weight:700;text-align:center;text-decoration:none;background:var(--gray);color:var(--ink);transition:background .15s,color .15s;border:2px solid var(--border);white-space:nowrap}
+.pc-btn-class:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pc-btn-pod{flex:1;padding:8px 4px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:10.5px;font-weight:700;text-align:center;text-decoration:none;background:var(--y);color:var(--ink);transition:background .15s;white-space:nowrap}
+.pc-btn-pod:hover{background:var(--yd)}
 
 /* CREDITS */
 #credits{background:var(--bg)}
@@ -259,7 +264,7 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <a href="#printing">3D Printing</a>
     <a href="#services">Classes</a>
     <a href="#projects">Projects</a>
-    <a href="#credits">Pricing</a>
+    <a href="#credits">Print on Demand</a>
     <a href="#events">Events</a>
     <a href="#cta" class="nav-cta">Book Now</a>
   </div>
@@ -381,26 +386,25 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
         <a href="#cta" class="sc-btn scb-ol">Book a class</a>
       </div>
     </div>
-    <!-- Season Pass -->
-    <div class="sc pop">
-      <div class="sc-vis" style="background:#FFFBF0;position:relative">
+    <!-- Print on Demand -->
+    <div class="sc">
+      <div class="sc-vis" style="background:#F0FFF4;position:relative">
         <div class="sc-vis-dots"></div>
-        <div class="sc-pop-badge">Best value</div>
-        <div style="font-size:60px;z-index:1">🎟️</div>
-        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#CC9900;margin-top:9px;z-index:1;opacity:.85">SEASON PASS</div>
+        <div style="font-size:60px;z-index:1">📤</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#1A7A4A;margin-top:9px;z-index:1;opacity:.85">PRINT ON DEMAND</div>
       </div>
       <div class="sc-body">
-        <div class="sc-icon">🎟️</div>
-        <div class="sc-name">Season Pass</div>
-        <p class="sc-desc">Pre-paid print credits. Pick from our project library and come back whenever you like.</p>
-        <div class="sc-price">$30</div>
-        <div class="sc-note">per pass · 1 pass = up to 2 hours of print time</div>
+        <div class="sc-icon">📤</div>
+        <div class="sc-name">Print on Demand</div>
+        <p class="sc-desc">Upload your own file or choose from our project library. We print it for you — just collect when ready.</p>
+        <div class="sc-price">From $20</div>
+        <div class="sc-note">standard $20 · premium $40 · custom files on request</div>
         <ul class="sc-list">
-          <li>Choose any project from our Standard collection</li>
-          <li>Pick from The Young Maker project library</li>
+          <li>No class required — order anytime</li>
+          <li>Choose from our Standard or Premium library</li>
           <li>All filament included</li>
         </ul>
-        <a href="#credits" class="sc-btn scb-y">See credit packs →</a>
+        <a href="#credits" class="sc-btn scb-ol">How it works →</a>
       </div>
     </div>
   </div>
@@ -417,8 +421,8 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
   </div>
   <div class="proj-filters">
     <button class="pf active" data-filter="all" onclick="filterProj('all',this)">All Projects</button>
-    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2 hr) — Season Pass</button>
-    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (3–4 hr) — Classes only</button>
+    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2 hr) — $20 Print on Demand</button>
+    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (3–4 hr) — $40 Print on Demand</button>
   </div>
 
   <!-- Standard Tier -->
@@ -426,32 +430,32 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <div class="tier-head">
       <span class="tier-badge" style="background:var(--gray);color:var(--ink)">Standard — 1–2 hr</span>
       <span class="tier-title">Standard projects</span>
-      <span class="tier-note">Season Pass eligible</span>
+      <span class="tier-note">Print on Demand · $20/project · or enrol in a class</span>
     </div>
     <div class="proj-grid">
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF3CC;padding:0;overflow:hidden"><div class="pc-badge">Popular</div><img src="keychain.jpg" alt="3D Printed Keychain" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–40 min</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="sign.webp" alt="3D Printed Sign" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Sign</div><p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print it in minutes.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Make My Sign</div><p class="pc-desc">Custom name plate, door sign, or desk label. Type anything and print it in minutes.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">20–45 min</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0F8;padding:0;overflow:hidden"><div class="pc-badge">Kids fave</div><img src="clicker.jpg" alt="3D Printed Fidget Clicker" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Fidget Clicker</div><p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div></div>
+        <div class="pc-body"><div class="pc-name">Fidget Clicker</div><p class="pc-desc">Satisfying tactile clicker with a snap mechanism. Multi-colour. Every kid wants one.</p><div class="pc-meta"><span class="pc-credits">1 credit</span><span class="pc-time">30–50 min</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="organizer.webp" alt="3D Printed Desk Organizer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2.5 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0E8;padding:0;overflow:hidden"><img src="crocs.webp" alt="3D Printed Crocs Charm" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Crocs Charm</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Crocs Charm</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F8F8FF;padding:0;overflow:hidden"><div class="pc-badge">Best for gifts</div><img src="lithophane.webp" alt="3D Printed Lithophane" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-meta"><span class="pc-credits">2 credits</span><span class="pc-time">1.5–2 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
       </div>
     </div>
   </div>
@@ -461,50 +465,59 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <div class="tier-head">
       <span class="tier-badge" style="background:var(--y);color:var(--ink)">Premium — 3–4 hr</span>
       <span class="tier-title">Premium projects</span>
-      <span class="tier-note">Available in Classes only</span>
+      <span class="tier-note">Print on Demand · $40/project · or enrol in a class</span>
     </div>
     <div class="proj-grid">
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F8F0FF;padding:0;overflow:hidden"><div class="pc-badge">Wow factor</div><img src="statue.jpg" alt="3D Printed Statue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-meta"><span class="pc-credits">3 credits</span><span class="pc-time">2–3.5 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
       </div>
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F0F8F0;padding:0;overflow:hidden"><img src="mouse.webp" alt="3D Printed Mechanical Mouse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
       </div>
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#FFFBF0;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><div style="font-size:56px;z-index:1">💡</div></div>
-        <div class="pc-body"><div class="pc-name">Lamp</div><p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div></div>
+        <div class="pc-body"><div class="pc-name">Lamp</div><p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p><div class="pc-meta"><span class="pc-credits">3–4 credits</span><span class="pc-time">3–4 hr</span></div><div class="pc-actions"><a href="#cta" class="pc-btn-class">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
       </div>
     </div>
   </div>
 
   <div style="text-align:center;margin-top:8px">
-    <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month. Session Pass holders get early access.</p>
+    <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month. Each project available for class enrollment or print on demand.</p>
   </div>
 </section>
 
-<!-- CREDITS -->
+<!-- PRINT ON DEMAND -->
 <section id="credits" class="r">
-  <div class="tag">Season Pass pricing</div>
-  <h2>Simple credits.</h2>
-  <p class="sub">1 credit = up to 2 hours of print time.</p>
+  <div class="tag">Print on Demand</div>
+  <h2>Order a print. No class needed.</h2>
+  <p class="sub">Upload your own file or pick any project from our library — we handle the printing. Collect from the lab when it's ready.</p>
   <div class="credits-grid">
     <div class="cr-rules">
-      <div class="cr-rule"><span class="cr-icon">⏱️</span><div><div class="cr-t">1 credit = up to 2 hours of print time</div><p class="cr-d">Each session is up to 2 hours. Choose one project from our Standard collection per session.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Pick from our project library</div><p class="cr-d">Season Pass holders choose from our curated Standard project library at The Young Maker. Each project shows its credit cost upfront.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">🎨</span><div><div class="cr-t">All filament included</div><p class="cr-d">All filament, build plate prep, and printer maintenance are included in your credits. You only pay for time.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">📋</span><div><div class="cr-t">Pick a project or upload your file</div><p class="cr-d">Browse our Standard or Premium project library and choose what you'd like to print. Or bring your own STL file — we'll quote you based on size and material.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">💬</span><div><div class="cr-t">We confirm your order</div><p class="cr-d">Send us a request via email or WhatsApp. We'll confirm the print time, colour, and cost before we start — no surprises.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">🖨️</span><div><div class="cr-t">We print it for you</div><p class="cr-d">Our printers get to work. All filament, build plate prep, and post-processing are included. Usually ready within 1–2 business days.</p></div></div>
+      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Collect from the lab</div><p class="cr-d">Pick up your finished print at the lab at a time that suits you. You can also add a class to learn how it was made.</p></div></div>
     </div>
     <div class="cr-tiers">
       <div class="tier">
-        <div class="tier-row"><span class="tier-name">Starter Pack</span><span class="tier-price">$30 <span>/ pack</span></span></div>
-        <div class="tier-chips"><span class="chip">1 credit</span><span style="font-size:12px;color:var(--light)">1 session · up to 2 hrs</span></div>
-        <ul class="tier-perks"><li>1 session (up to 2 hrs printing)</li><li>Access to Standard project library</li><li>Great for first-timers</li></ul>
+        <div class="tier-row"><span class="tier-name">Standard Project</span><span class="tier-price">$20 <span>/ project</span></span></div>
+        <div class="tier-chips"><span class="chip">1–2 hr print</span><span style="font-size:12px;color:var(--light)">Keychains, signs, charms &amp; more</span></div>
+        <ul class="tier-perks"><li>Any project from our Standard library</li><li>All filament colours included</li><li>Ready within 1–2 business days</li></ul>
       </div>
       <div class="tier pop">
-        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Maker Pack</span><span class="pop-badge">Best value</span></div><span class="tier-price">$125 <span>/ pack</span></span></div>
-        <div class="tier-chips"><span class="chip">5 credits</span><span style="font-size:12px;color:var(--light)">5 sessions · up to 10 hrs total</span></div>
-        <ul class="tier-perks"><li>5 sessions (up to 2 hrs each)</li><li>Access to Standard project library</li><li>Priority booking</li></ul>
+        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Premium Project</span><span class="pop-badge">Most impressive</span></div><span class="tier-price">$40 <span>/ project</span></span></div>
+        <div class="tier-chips"><span class="chip">3–4 hr print</span><span style="font-size:12px;color:var(--light)">Statues, mouse, lamps &amp; more</span></div>
+        <ul class="tier-perks"><li>Any project from our Premium library</li><li>Multi-colour printing available</li><li>Ready within 1–2 business days</li></ul>
+      </div>
+      <div class="tier" style="border-style:dashed">
+        <div class="tier-row"><span class="tier-name">Custom Upload</span><span class="tier-price" style="font-size:16px">Contact us</span></div>
+        <div class="tier-chips"><span class="chip">Your STL file</span><span style="font-size:12px;color:var(--light)">Quote based on size &amp; material</span></div>
+        <ul class="tier-perks"><li>Bring any STL or 3MF file</li><li>We advise on settings &amp; material</li><li>Price confirmed before printing</li></ul>
+      </div>
+      <div style="margin-top:16px;text-align:center">
+        <a href="mailto:hello@youngmaker.sg?subject=Print on Demand Request" class="btn btn-ink" style="width:100%;justify-content:center;font-size:14px;padding:13px 20px">Request a print →</a>
       </div>
     </div>
   </div>
@@ -564,7 +577,7 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
     <h4>Services</h4>
     <a href="#services">3D Printing Classes</a>
     <a href="#services">3D Modelling Classes</a>
-    <a href="#services">Season Pass</a>
+    <a href="#credits">Print on Demand</a>
     <a href="#events">Birthday Parties</a>
     <a href="#events">Corporate Workshops</a>
   </div>
