@@ -224,22 +224,29 @@ section{padding:72px 5%}
 .cta-note{margin-top:18px;font-size:12px;color:rgba(26,26,24,.45)}
 
 /* FOOTER */
-footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px}
-.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;text-decoration:none}
-.ft-logo-t{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:900;color:#fff}
-.ft-brand p{font-size:13px;line-height:1.68;max-width:220px;font-weight:300}
-.ft-col h4{font-family:'League Spartan',sans-serif;font-weight:800;font-size:12px;color:#fff;margin-bottom:14px}
-.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:8px;transition:color .15s;font-weight:300}
-.ft-col a:hover{color:var(--y)}
-.ft-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.07);padding-top:20px;margin-top:4px;display:flex;justify-content:space-between;font-size:12px}
-.ft-y{color:var(--y);font-family:'League Spartan',sans-serif;font-weight:700}
+footer{background:var(--y);color:var(--ink);padding:52px 5% 0}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px}
+.ft-logo{font-family:'League Spartan',sans-serif;font-size:19px;font-weight:900;text-decoration:none;color:var(--ink);display:block;line-height:1.2;margin-bottom:14px}
+.ft-logo-sub{font-size:12px;font-weight:400;opacity:.55}
+.ft-brand-desc{font-size:13px;opacity:.7;line-height:1.65;max-width:200px;margin-bottom:18px}
+.ft-socials{display:flex;gap:8px}
+.ft-soc{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--y);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;text-decoration:none;transition:opacity .15s;font-family:'League Spartan',sans-serif}
+.ft-soc:hover{opacity:.75}
+.ft-col h4{font-family:'League Spartan',sans-serif;font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.ft-col a,.ft-col p{display:block;font-size:13.5px;color:var(--ink);text-decoration:none;margin-bottom:8px;opacity:.85;line-height:1.55}
+.ft-col a:hover{opacity:1}
+.ft-col strong{font-weight:700;opacity:1}
+.ft-cta-bar{border-top:1.5px solid rgba(26,26,24,.15);padding:20px 0}
+.ft-cta-btn{display:block;background:#fff;color:var(--ink);font-family:'League Spartan',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center;padding:18px 24px;border-radius:100px;text-decoration:none;transition:background .15s,box-shadow .15s}
+.ft-cta-btn:hover{background:var(--ink);color:var(--y)}
+.ft-bottom{padding:16px 0;font-size:12px;opacity:.6}
 
 @media(max-width:860px){
   .services-grid,.uc-grid,.events-layout,.credits-grid{grid-template-columns:1fr}
   .hero-left{max-width:100%}
   .print-types,.tgrid,.proj-grid{grid-template-columns:1fr 1fr}
   .filaments{grid-template-columns:repeat(3,1fr)}
-  footer{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
 }
 @media(max-width:520px){
@@ -549,36 +556,40 @@ footer{background:#0d1828;color:rgba(255,255,255,.38);padding:52px 5% 28px;displ
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-brand">
-    <a href="#" class="ft-logo"><span class="ft-logo-t">3D Printing Lab <span style="font-weight:400;opacity:.6;font-size:13px">by The Young Maker</span></span></a>
-    <p>Singapore's first 3D printing lab. We turn curious minds into confident makers — and sometimes, founders.</p>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="#" class="ft-logo">3D Printing Lab<br><span class="ft-logo-sub">by The Young Maker</span></a>
+      <p class="ft-brand-desc">Singapore's first 3D printing lab for kids, teens &amp; adults.</p>
+      <div class="ft-socials">
+        <a href="#" class="ft-soc">f</a>
+        <a href="#" class="ft-soc">in</a>
+        <a href="#" class="ft-soc">ig</a>
+        <a href="#" class="ft-soc">▶</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Location</h4>
+      <p><strong>Stars of Kovan</strong><br>988 Upper Serangoon Rd<br>#01-15, S534733</p>
+      <p style="margin-top:10px"><strong>Lowland Branch</strong><br>35 Lowland Road<br>S547439</p>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@youngmaker.sg">hello@youngmaker.sg</a>
+      <a href="tel:+6597775275">(65) 9777 5275</a>
+    </div>
+    <div class="ft-col">
+      <h4>Sitemap</h4>
+      <a href="#services">3D Printing Classes</a>
+      <a href="#services">3D Modelling Classes</a>
+      <a href="#credits">Print on Demand</a>
+      <a href="#projects">Projects</a>
+      <a href="#cta">Events</a>
+    </div>
   </div>
-  <div class="ft-col">
-    <h4>Visit Us</h4>
-    <a href="#">Location 1 — Central</a>
-    <a href="#">Location 2 — East</a>
-    <a href="#">Opening hours</a>
-    <a href="#">Get directions</a>
+  <div class="ft-cta-bar">
+    <a href="mailto:hello@youngmaker.sg" class="ft-cta-btn">Book a Class</a>
   </div>
-  <div class="ft-col">
-    <h4>Services</h4>
-    <a href="#services">3D Printing Classes</a>
-    <a href="#services">3D Modelling Classes</a>
-    <a href="#credits">Print on Demand</a>
-    <a href="#cta">Birthday Parties</a>
-    <a href="#cta">Corporate Workshops</a>
-  </div>
-  <div class="ft-col">
-    <h4>Connect</h4>
-    <a href="#">TikTok</a>
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-    <a href="#">hello@youngmaker.sg</a>
-  </div>
-  <div class="ft-bottom">
-    <span>© 2025 <span class="ft-y">The Young Maker</span>. Singapore.</span>
-    <span>Privacy · Terms</span>
-  </div>
+  <div class="ft-bottom">© 2026 by The Young Maker</div>
 </footer>
 
 <script>
