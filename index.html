@@ -143,30 +143,29 @@ section{padding:72px 5%}
 .pc-btn-pod{flex:1;padding:8px 4px;border-radius:8px;font-family:'League Spartan',sans-serif;font-size:10.5px;font-weight:700;text-align:center;text-decoration:none;background:var(--y);color:var(--ink);transition:background .15s;white-space:nowrap}
 .pc-btn-pod:hover{background:var(--yd)}
 
-/* CREDITS */
+/* PRINT ON DEMAND */
 #credits{background:var(--bg)}
-.credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:44px}
-.cr-rules{display:flex;flex-direction:column;gap:14px}
-.cr-rule{display:flex;gap:14px;padding:16px 18px;background:var(--white);border-radius:12px;border:2px solid var(--border)}
-.cr-icon{font-size:20px;flex-shrink:0;margin-top:1px}
-.cr-t{font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;margin-bottom:3px}
-.cr-d{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300}
-.cr-tiers{display:flex;flex-direction:column;gap:12px}
-.tier{background:var(--white);border-radius:14px;border:2px solid var(--border);padding:20px 22px;transition:border-color .2s}
-.tier:hover{border-color:var(--y)}
-.tier.pop{border-color:var(--y);background:var(--yp)}
-.tier-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.tier-name{font-family:'League Spartan',sans-serif;font-size:16px;font-weight:800}
-.tier-price{font-family:'League Spartan',sans-serif;font-weight:900;font-size:22px;color:var(--y)}
-.tier-price span{font-size:13px;font-weight:400;color:var(--light)}
-.tier-chips{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.credits-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:52px;align-items:start;margin-top:44px}
+.pod-steps{display:flex;flex-direction:column}
+.pod-step{display:flex;gap:16px;align-items:flex-start}
+.pod-step-num{width:38px;height:38px;border-radius:50%;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--yd)}
+.pod-step-t{font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;margin-bottom:4px;padding-top:6px}
+.pod-step-d{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300;padding-bottom:4px}
+.pod-connector{width:2px;height:28px;background:var(--border);margin-left:18px}
+.pod-form{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 26px}
+.pod-form-title{font-family:'League Spartan',sans-serif;font-size:16px;font-weight:800;margin-bottom:18px}
+.pod-row{display:flex;gap:12px}
+.pod-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;flex:1}
+.pod-field label{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--ink)}
+.pod-field input,.pod-field select,.pod-field textarea{padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .15s;width:100%}
+.pod-field input:focus,.pod-field select:focus,.pod-field textarea:focus{border-color:var(--y)}
+.pod-field textarea{resize:vertical;min-height:72px}
+.pod-file-wrap{display:flex;align-items:center;gap:10px;padding:11px 14px;border:2px dashed var(--border);border-radius:10px;cursor:pointer;transition:border-color .15s;background:var(--bg);width:100%}
+.pod-file-wrap:hover{border-color:var(--y)}
+.pod-file-wrap input[type=file]{display:none}
+.pod-submit{width:100%;padding:13px;border-radius:8px;background:var(--ink);color:#fff;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:background .15s;margin-top:4px}
+.pod-submit:hover{background:#333}
 .chip{background:var(--yl);color:var(--yd);font-family:'League Spartan',sans-serif;font-size:11px;font-weight:800;padding:3px 10px;border-radius:100px}
-.pop-badge{background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px}
-.tier-perks{list-style:none;display:flex;flex-direction:column;gap:5px}
-.tier-perks li{font-size:13px;color:var(--mid);display:flex;gap:8px;font-weight:300}
-.tier-perks li::before{content:'✓';color:var(--yd);font-weight:700;flex-shrink:0}
-.cr-example{background:var(--yp);border:2px solid var(--y);border-radius:12px;padding:14px 16px;margin-top:4px}
-.cr-example p{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300}
 
 /* EVENTS */
 #events{background:var(--bg)}
@@ -513,34 +512,83 @@ footer{background:var(--y);color:var(--ink);padding:52px 5% 0}
 <section id="credits" class="r">
   <div class="tag">Print on Demand</div>
   <h2>Order a print. No class needed.</h2>
-  <p class="sub">Upload your own file or pick any project from our library — we handle the printing. Collect from the lab when it's ready.</p>
+  <p class="sub">Choose a project from our library or upload your own file — we print it and you collect.</p>
   <div class="credits-grid">
-    <div class="cr-rules">
-      <div class="cr-rule"><span class="cr-icon">📋</span><div><div class="cr-t">Pick a project or upload your file</div><p class="cr-d">Browse our Standard or Premium project library and choose what you'd like to print. Or bring your own STL file — we'll quote you based on size and material.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">💬</span><div><div class="cr-t">We confirm your order</div><p class="cr-d">Send us a request via email or WhatsApp. We'll confirm the print time, colour, and cost before we start — no surprises.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">🖨️</span><div><div class="cr-t">We print it for you</div><p class="cr-d">Our printers get to work. All filament, build plate prep, and post-processing are included. Usually ready within 1–2 business days.</p></div></div>
-      <div class="cr-rule"><span class="cr-icon">📦</span><div><div class="cr-t">Collect from the lab</div><p class="cr-d">Pick up your finished print at the lab at a time that suits you. You can also add a class to learn how it was made.</p></div></div>
-    </div>
-    <div class="cr-tiers">
-      <div class="tier">
-        <div class="tier-row"><span class="tier-name">Standard Project</span><span class="tier-price">$20 <span>/ project</span></span></div>
-        <div class="tier-chips"><span class="chip">1–2 hr print</span><span style="font-size:12px;color:var(--light)">Keychains, signs, charms &amp; more</span></div>
-        <ul class="tier-perks"><li>Any project from our Standard library</li><li>All filament colours included</li><li>Ready within 1–2 business days</li></ul>
+
+    <!-- Steps -->
+    <div class="pod-steps">
+      <div class="pod-step">
+        <div class="pod-step-num">1</div>
+        <div><div class="pod-step-t">Choose a project or upload your file</div><p class="pod-step-d">Pick from our Standard or Premium project library, or bring your own STL / 3MF file.</p></div>
       </div>
-      <div class="tier pop">
-        <div class="tier-row"><div style="display:flex;align-items:center;gap:10px"><span class="tier-name">Premium Project</span><span class="pop-badge">Most impressive</span></div><span class="tier-price">$40 <span>/ project</span></span></div>
-        <div class="tier-chips"><span class="chip">3–4 hr print</span><span style="font-size:12px;color:var(--light)">Statues, mouse, lamps &amp; more</span></div>
-        <ul class="tier-perks"><li>Any project from our Premium library</li><li>Multi-colour printing available</li><li>Ready within 1–2 business days</li></ul>
+      <div class="pod-connector"></div>
+      <div class="pod-step">
+        <div class="pod-step-num">2</div>
+        <div><div class="pod-step-t">Fill in the request form</div><p class="pod-step-d">Select your project type, add your contact details, and attach your file if you have one.</p></div>
       </div>
-      <div class="tier" style="border-style:dashed">
-        <div class="tier-row"><span class="tier-name">Custom Upload</span><span class="tier-price" style="font-size:16px">Contact us</span></div>
-        <div class="tier-chips"><span class="chip">Your STL file</span><span style="font-size:12px;color:var(--light)">Quote based on size &amp; material</span></div>
-        <ul class="tier-perks"><li>Bring any STL or 3MF file</li><li>We advise on settings &amp; material</li><li>Price confirmed before printing</li></ul>
+      <div class="pod-connector"></div>
+      <div class="pod-step">
+        <div class="pod-step-num">3</div>
+        <div><div class="pod-step-t">We confirm &amp; quote you</div><p class="pod-step-d">We'll reply with the print time, colour options, and cost before we start — no surprises.</p></div>
       </div>
-      <div style="margin-top:16px;text-align:center">
-        <a href="mailto:hello@youngmaker.sg?subject=Print on Demand Request" class="btn btn-ink" style="width:100%;justify-content:center;font-size:14px;padding:13px 20px">Request a print →</a>
+      <div class="pod-connector"></div>
+      <div class="pod-step">
+        <div class="pod-step-num">4</div>
+        <div><div class="pod-step-t">Collect from the lab</div><p class="pod-step-d">Pick up your finished print at a time that suits you. Usually ready within 1–2 business days.</p></div>
       </div>
     </div>
+
+    <!-- Request Form -->
+    <form class="pod-form" action="https://formspree.io/hello@theyoungmaker.com" method="POST" enctype="multipart/form-data">
+      <div class="pod-form-title">📤 Submit a print request</div>
+      <div class="pod-row">
+        <div class="pod-field">
+          <label>Your name</label>
+          <input type="text" name="name" placeholder="e.g. Jane Tan" required>
+        </div>
+        <div class="pod-field">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+      <div class="pod-field">
+        <label>Project type</label>
+        <select name="project_type" required>
+          <option value="">Select a project…</option>
+          <optgroup label="Standard Projects — $20">
+            <option value="Image to Keychain ($20)">Image to Keychain</option>
+            <option value="Luggage Tag ($20)">Luggage Tag</option>
+            <option value="Fidget Clicker ($20)">Fidget Clicker</option>
+            <option value="Desk Organizer ($20)">Desk Organizer</option>
+            <option value="Crocs Charm ($20)">Crocs Charm</option>
+            <option value="Pixel Art ($20)">Pixel Art</option>
+          </optgroup>
+          <optgroup label="Premium Projects — $40">
+            <option value="Make My Statue ($40)">Make My Statue</option>
+            <option value="Lithophane Photo ($40)">Lithophane Photo</option>
+            <option value="Mechanical Mouse ($40)">Mechanical Mouse</option>
+            <option value="Lamp ($40)">Lamp</option>
+          </optgroup>
+          <optgroup label="Custom">
+            <option value="Custom Upload — my own file">Custom Upload — I'll attach my file</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="pod-field">
+        <label>Attach your file <span style="font-weight:300;text-transform:none;letter-spacing:0;opacity:.5">— STL or 3MF (optional)</span></label>
+        <label class="pod-file-wrap">
+          <span style="font-size:18px">📎</span>
+          <span id="pod-fname" style="font-size:13px;color:var(--mid)">Click to attach file…</span>
+          <input type="file" name="attachment" accept=".stl,.3mf,.obj" onchange="document.getElementById('pod-fname').textContent=this.files[0]?this.files[0].name:'Click to attach file…'">
+        </label>
+      </div>
+      <div class="pod-field">
+        <label>Colour &amp; notes <span style="font-weight:300;text-transform:none;letter-spacing:0;opacity:.5">— optional</span></label>
+        <textarea name="notes" placeholder="Preferred colour, deadline, or any special requests…"></textarea>
+      </div>
+      <button type="submit" class="pod-submit">Send my request →</button>
+    </form>
+
   </div>
 </section>
 
