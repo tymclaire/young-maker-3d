@@ -89,7 +89,7 @@ section{padding:72px 5%}
 
 /* SERVICES */
 #services{background:var(--bg)}
-.services-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:44px}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
 .sc{background:var(--white);border-radius:16px;border:2px solid var(--border);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
 .sc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 14px 40px rgba(255,191,0,.12)}
 .sc.pop{border-color:var(--y)}
@@ -125,7 +125,7 @@ section{padding:72px 5%}
 .pc{background:var(--gray);border-radius:14px;overflow:hidden;border:2px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
 .pc:hover{border-color:var(--y);transform:translateY(-4px);box-shadow:0 10px 30px rgba(255,191,0,.12)}
 .pc.hidden{display:none}
-.pc-vis{width:100%;height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.pc-vis{width:100%;height:156px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0}
 .pc-vis-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1px);background-size:18px 18px}
 .pc-badge{position:absolute;top:8px;right:8px;background:var(--y);color:var(--ink);font-family:'League Spartan',sans-serif;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:100px;z-index:1}
 .pc-icon{font-size:42px;line-height:1;z-index:1;filter:drop-shadow(0 3px 6px rgba(0,0,0,.1))}
@@ -270,7 +270,6 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
     <a href="#printing">3D Printing</a>
     <a href="#services">Classes</a>
     <a href="#projects">Projects</a>
-    <a href="#credits">Print on Demand</a>
     <a href="#services" class="nav-cta">Book Now</a>
   </div>
 </nav>
@@ -334,7 +333,7 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
 <!-- SERVICES -->
 <section id="services" class="r">
   <div class="tag">Our services</div>
-  <h2>Three ways to get creative.</h2>
+  <h2>Two ways to get creative.</h2>
   <p class="sub">Whether you're a first-timer or a regular maker, we have a format for you.</p>
   <div class="services-grid">
     <!-- 3D Printing Class -->
@@ -391,26 +390,6 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
         </div>
       </div>
     </div>
-    <!-- Print on Demand -->
-    <div class="sc">
-      <div class="sc-vis" style="background:#F0FFF4;position:relative">
-        <div class="sc-vis-dots"></div>
-        <div style="font-size:60px;z-index:1">📤</div>
-        <div style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#1A7A4A;margin-top:9px;z-index:1;opacity:.85">PRINT ON DEMAND</div>
-      </div>
-      <div class="sc-body">
-        <div class="sc-icon">📤</div>
-        <div class="sc-name">Print on Demand</div>
-        <p class="sc-desc">Upload your own file or choose from our project library. We print it for you — just collect when ready.</p>
-        <div class="sc-price">From $20</div>
-        <div class="sc-note">standard $20 · premium $40 · custom files on request</div>
-        <ul class="sc-list">
-          <li>Choose from our Standard or Premium library</li>
-          <li>All filament included</li>
-        </ul>
-        <a href="#credits" class="sc-btn scb-ol">How it works →</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -425,8 +404,8 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
   </div>
   <div class="proj-filters">
     <button class="pf active" data-filter="all" onclick="filterProj('all',this)">All Projects</button>
-    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2 hr) — $20 Print on Demand</button>
-    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (3–4 hr) — $40 Print on Demand</button>
+    <button class="pf" data-filter="standard" onclick="filterProj('standard',this)">🕐 Standard (1–2 hr)</button>
+    <button class="pf" data-filter="premium" onclick="filterProj('premium',this)">⭐ Premium (3–4 hr)</button>
   </div>
 
   <!-- Standard Tier -->
@@ -438,11 +417,11 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
     <div class="proj-grid">
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF3CC;padding:0;overflow:hidden"><div class="pc-badge">Popular</div><img src="keychain.jpg" alt="3D Printed Keychain" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
+        <div class="pc-body"><div class="pc-name">Image to Keychain</div><p class="pc-desc">Upload any photo — turns into a flat keychain or bookmark. Any shape, any colour. Perfect first print.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="sign.webp" alt="3D Printed Luggage Tag" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Luggage Tag</div><p class="pc-desc">Print a personalised tag with your name or initials. Never mix up your bag again — and it looks great.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
+        <div class="pc-body"><div class="pc-name">Luggage Tag</div><p class="pc-desc">Print a personalised tag with your name or initials. Never mix up your bag again — and it looks great.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0F8;padding:0;overflow:hidden"><div class="pc-badge">Kids fave</div><img src="clicker.jpg" alt="3D Printed Fidget Clicker" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
@@ -450,15 +429,15 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0F8FF;padding:0;overflow:hidden"><img src="organizer.webp" alt="3D Printed Desk Organizer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
+        <div class="pc-body"><div class="pc-name">Desk Organizer</div><p class="pc-desc">Custom tray or pen holder sized to your exact desk. Genuinely useful take-home.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#FFF0E8;padding:0;overflow:hidden"><img src="crocs.webp" alt="3D Printed Crocs Charm" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Crocs Charm</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
+        <div class="pc-body"><div class="pc-name">Crocs Charm</div><p class="pc-desc">Design and print your own custom Jibbitz charm. Snap it onto any Crocs — personalise your pair.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
       <div class="pc" data-tags="all standard">
         <div class="pc-vis" style="background:#F0E8FF;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><div style="font-size:52px;z-index:1">🎮</div></div>
-        <div class="pc-body"><div class="pc-name">Pixel Art</div><p class="pc-desc">Design your own pixel art panel — characters, logos, or patterns. Bold, colourful, and surprisingly satisfying to print.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $20</a></div></div>
+        <div class="pc-body"><div class="pc-name">Pixel Art</div><p class="pc-desc">Design your own pixel art panel — characters, logos, or patterns. Bold, colourful, and surprisingly satisfying to print.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
     </div>
   </div>
@@ -472,106 +451,25 @@ footer{background:#1a3250;color:#fff;padding:52px 5% 0}
     <div class="proj-grid">
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F8F0FF;padding:0;overflow:hidden"><div class="pc-badge">Wow factor</div><img src="statue.jpg" alt="3D Printed Statue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
+        <div class="pc-body"><div class="pc-name">Make My Statue</div><p class="pc-desc">Turn a portrait photo into a lifelike 3D figurine. Print a miniature of yourself or anyone.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
       </div>
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F8F8FF;padding:0;overflow:hidden"><div class="pc-badge">Best for gifts</div><img src="lithophane.webp" alt="3D Printed Lithophane" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
+        <div class="pc-body"><div class="pc-name">Lithophane Photo</div><p class="pc-desc">Your photo printed as a translucent panel that glows when backlit. A truly memorable keepsake.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="https://wa.me/6597775265?text=I%27m%20interested%20in%20purchasing%20the%20Lithophane%20Photo%20set%20%28%2440%29" class="pc-btn-pod" target="_blank" rel="noopener">Buy Set — $40</a></div></div>
       </div>
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#F0F8F0;padding:0;overflow:hidden"><img src="mouse.webp" alt="3D Printed Mechanical Mouse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"></div>
-        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a></div></div>
+        <div class="pc-body"><div class="pc-name">Mechanical Mouse</div><p class="pc-desc">A fully printed functional mechanical mouse with clicking buttons and scroll wheel. An impressive engineering build.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="https://wa.me/6597775265?text=I%27m%20interested%20in%20purchasing%20the%20Mechanical%20Mouse%20set%20%28%2440%29" class="pc-btn-pod" target="_blank" rel="noopener">Buy Set — $40</a></div></div>
       </div>
       <div class="pc" data-tags="all premium">
         <div class="pc-vis" style="background:#FFFBF0;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center"><div style="font-size:56px;z-index:1">💡</div></div>
-        <div class="pc-body"><div class="pc-name">Lamp</div><p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="#credits" class="pc-btn-pod">Print on Demand $40</a></div></div>
+        <div class="pc-body"><div class="pc-name">Lamp</div><p class="pc-desc">Design and print a custom lamp shade or base. A beautiful, functional piece you built yourself.</p><div class="pc-actions"><a href="https://wa.me/6597775265?text=I%27m%20interested%20to%20sign%20up%20for%203D%20Printing%20Class" class="pc-btn-class" target="_blank" rel="noopener">Enrol in Class</a><a href="https://wa.me/6597775265?text=I%27m%20interested%20in%20purchasing%20the%20Lamp%20set%20%28%2440%29" class="pc-btn-pod" target="_blank" rel="noopener">Buy Set — $40</a></div></div>
       </div>
     </div>
   </div>
 
   <div style="text-align:center;margin-top:8px">
-    <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month. Each project available for class enrollment or print on demand.</p>
-  </div>
-</section>
-
-<!-- PRINT ON DEMAND -->
-<section id="credits" class="r">
-  <div class="tag">Print on Demand</div>
-  <h2>Order a print.</h2>
-  <p class="sub">Choose a project from our library or upload your own file — we print it and you collect.</p>
-  <div class="credits-grid">
-
-    <!-- Steps -->
-    <div class="pod-steps">
-      <div class="pod-step">
-        <div class="pod-step-num">1</div>
-        <div><div class="pod-step-t">Pick your Project &amp; fill in the request form</div><p class="pod-step-d">Choose from our project library or upload your own STL / 3MF file. Tell us your colour preference and any notes.</p></div>
-      </div>
-      <div class="pod-connector"></div>
-      <div class="pod-step">
-        <div class="pod-step-num">2</div>
-        <div><div class="pod-step-t">We confirm &amp; quote you</div><p class="pod-step-d">We'll reply with the print time, colour options, and cost before we start — no surprises.</p></div>
-      </div>
-      <div class="pod-connector"></div>
-      <div class="pod-step">
-        <div class="pod-step-num">3</div>
-        <div><div class="pod-step-t">Pick Self Collection or Mail Delivery</div><p class="pod-step-d">Collect from our lab at a time that suits you, or opt for mail delivery — we'll arrange it with you.</p></div>
-      </div>
-    </div>
-
-    <!-- Request Form -->
-    <form class="pod-form" action="https://formspree.io/hello@theyoungmaker.com" method="POST" enctype="multipart/form-data">
-      <div class="pod-form-title">📤 Submit a print request</div>
-      <div class="pod-row">
-        <div class="pod-field">
-          <label>Your name</label>
-          <input type="text" name="name" placeholder="e.g. Jane Tan" required>
-        </div>
-        <div class="pod-field">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="jane@email.com" required>
-        </div>
-      </div>
-      <div class="pod-field">
-        <label>Contact number</label>
-        <input type="tel" name="phone" placeholder="e.g. +65 9123 4567" required>
-      </div>
-      <div class="pod-field">
-        <label>Project type</label>
-        <select name="project_type" required>
-          <option value="">Select a project…</option>
-          <optgroup label="Standard Projects — $20">
-            <option value="Image to Keychain ($20)">Image to Keychain</option>
-            <option value="Luggage Tag ($20)">Luggage Tag</option>
-            <option value="Desk Organizer ($20)">Desk Organizer</option>
-            <option value="Crocs Charm ($20)">Crocs Charm</option>
-            <option value="Pixel Art ($20)">Pixel Art</option>
-          </optgroup>
-          <optgroup label="Premium Projects — $40">
-            <option value="Make My Statue ($40)">Make My Statue</option>
-            <option value="Lithophane Photo ($40)">Lithophane Photo</option>
-            <option value="Lamp ($40)">Lamp</option>
-          </optgroup>
-          <optgroup label="Custom">
-            <option value="Custom Upload — my own file">Custom Upload — I'll attach my file</option>
-          </optgroup>
-        </select>
-      </div>
-      <div class="pod-field">
-        <label>Attach your file <span style="font-weight:300;text-transform:none;letter-spacing:0;opacity:.5">— STL or 3MF (optional)</span></label>
-        <label class="pod-file-wrap">
-          <span style="font-size:18px">📎</span>
-          <span id="pod-fname" style="font-size:13px;color:var(--mid)">Click to attach file…</span>
-          <input type="file" name="attachment" accept=".stl,.3mf,.obj" onchange="document.getElementById('pod-fname').textContent=this.files[0]?this.files[0].name:'Click to attach file…'">
-        </label>
-      </div>
-      <div class="pod-field">
-        <label>Colour &amp; notes <span style="font-weight:300;text-transform:none;letter-spacing:0;opacity:.5">— optional</span></label>
-        <textarea name="notes" placeholder="Preferred colour, deadline, or any special requests…"></textarea>
-      </div>
-      <button type="submit" class="pod-submit">Send my request →</button>
-    </form>
-
+    <p style="font-size:13px;color:var(--light);margin-bottom:16px">New projects added every month.</p>
   </div>
 </section>
 
